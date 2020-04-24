@@ -23,6 +23,44 @@ export class LayoutService {
           values: [
             {
               component: ReadOnlyValueComponent,
+              label: "Name",
+              value: "Administrator",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "UUID",
+              value: "1b182945-8136-4d42-bf61-d0c4a323a13d",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "Remark",
+              value: "1",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "Status",
+              value: "active",
+            },
+
+            {
+              component: ReadOnlyValueComponent,
+              label: "Last Name",
+              value: "Administrator",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "First Name",
+              value: "The",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "Timezone",
+              value: " America/Lima",
+            },
+            {
+              component: ReadOnlyValueComponent,
+              label: "Calendar",
+              value: "ISO8601 Java calendar system",
             },
           ],
         },

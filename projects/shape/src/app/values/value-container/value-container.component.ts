@@ -1,13 +1,14 @@
 import {
-  Component,
-  OnInit,
-  ComponentFactoryResolver,
-  ViewChild,
-  Input,
   AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  OnInit,
+  ViewChild,
 } from "@angular/core";
+
+import { Value, ValueComponent } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
-import { Value } from "../../models";
 
 @Component({
   selector: "eFaps-value-container",
@@ -40,5 +41,6 @@ export class ValueContainerComponent implements OnInit, AfterViewInit {
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
+    (<ValueComponent>componentRef.instance).setValue(this._value);
   }
 }
