@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Tile } from '../../models';
+import { Tile } from "../../models";
 import { LayoutService } from "../../services/layout.service";
 
 @Component({
@@ -17,8 +17,8 @@ export class FormComponent implements OnInit {
     this.layoutService.currentLayout.subscribe({
       next: (layout) => {
         if (layout) {
-          this.columns = layout.columns
-          this.tiles = layout.tiles
+          this.columns = layout.columns;
+          this.tiles = layout.tiles;
         }
       },
     });

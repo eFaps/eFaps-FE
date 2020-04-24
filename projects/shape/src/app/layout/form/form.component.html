@@ -3,6 +3,6 @@
       *ngFor="let tile of tiles"
       [colspan]="tile.colspan"
       [rowspan]="tile.rowspan">
-    {{tile.id}}
+    <eFaps-tile [tile]="tile">content</eFaps-tile>
   </mat-grid-tile>
 </mat-grid-list>
