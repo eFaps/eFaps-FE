@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1, 
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "shape": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shape",
+      "sourceRoot": "projects/shape/src",
+      "prefix": "eFaps",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/shape",
+            "index": "projects/shape/src/index.html",
+            "main": "projects/shape/src/main.ts",
+            "polyfills": "projects/shape/src/polyfills.ts",
+            "tsConfig": "projects/shape/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/shape/src/favicon.ico",
+              "projects/shape/src/assets"
+            ],
+            "styles": [
+              "projects/shape/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/shape/src/environments/environment.ts",
+                  "with": "projects/shape/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shape:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shape:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shape:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shape/src/test.ts",
+            "polyfills": "projects/shape/src/polyfills.ts",
+            "tsConfig": "projects/shape/tsconfig.spec.json",
+            "karmaConfig": "projects/shape/karma.conf.js",
+            "assets": [
+              "projects/shape/src/favicon.ico",
+              "projects/shape/src/assets"
+            ],
+            "styles": [
+              "projects/shape/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shape/tsconfig.app.json",
+              "projects/shape/tsconfig.spec.json",
+              "projects/shape/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/shape/e2e/protractor.conf.js",
+            "devServerTarget": "shape:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shape:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "shape"
 }
