@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { LayoutService } from '../services/layout.service';
+import { LayoutService } from "../services/layout.service";
 
 @Component({
   selector: "eFaps-layout",
@@ -10,6 +10,6 @@ export class LayoutComponent implements OnInit {
   constructor(private layoutService: LayoutService) {}
 
   ngOnInit(): void {
-      this.layoutService.loadLayout()
+    this.layoutService.loadLayout();
   }
 }

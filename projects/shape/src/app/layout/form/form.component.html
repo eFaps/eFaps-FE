@@ -1,1 +1,8 @@
-<p>form works!</p>
+<mat-grid-list [cols]="columns" rowHeight="fit">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.colspan"
+      [rowspan]="tile.rowspan">
+    {{tile.id}}
+  </mat-grid-tile>
+</mat-grid-list>
