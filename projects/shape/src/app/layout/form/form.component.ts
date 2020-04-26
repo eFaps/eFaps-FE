@@ -1,26 +1,36 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
-import { Tile } from "../../models";
-import { LayoutService } from "../../services/layout.service";
+import { FormSection, Value } from "../../models";
 
 @Component({
   selector: "eFaps-form",
   templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.scss"],
+  styleUrls: ["./form.component.scss"]
 })
 export class FormComponent implements OnInit {
-  tiles: Tile[] = [];
-  columns: number = 0;
-  constructor(private layoutService: LayoutService) {}
+  _section: FormSection;
 
-  ngOnInit(): void {
-    this.layoutService.currentLayout.subscribe({
-      next: (layout) => {
-        if (layout) {
-          this.columns = layout.columns;
-          this.tiles = layout.tiles;
-        }
-      },
-    });
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  @Input()
+  set section(section: FormSection) {
+    this._section = section;
+  }
+
+  get section(): FormSection {
+    return this._section;
+  }
+
+  isArray(obj: any) {
+    return Array.isArray(obj);
+  }
+
+  getArrayStyle(valAr: Value[], index: number) {
+    let style = {
+      width: "calc(100% / " + valAr.length + ")"
+    };
+    return style;
   }
 }

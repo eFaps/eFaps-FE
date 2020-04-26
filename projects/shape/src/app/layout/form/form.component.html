@@ -1,8 +1,10 @@
-<mat-grid-list [cols]="columns" rowHeight="fit">
-  <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.colspan"
-      [rowspan]="tile.rowspan">
-    <eFaps-tile [tile]="tile">content</eFaps-tile>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="form-section">
+  <div *ngFor="let value of section?.values" class="value">
+    <ng-container *ngIf="isArray(value)">
+      <eFaps-value-container *ngFor="let val of value;let i = index" [value]="val" [ngStyle]="getArrayStyle(value, i)"></eFaps-value-container>
+    </ng-container>
+    <ng-container *ngIf="!isArray(value)">
+      <eFaps-value-container [value]="value"></eFaps-value-container>
+    </ng-container>
+  </div>
+</div>

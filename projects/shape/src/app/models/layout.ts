@@ -1,6 +1,5 @@
-import { Tile } from "./tile";
+import { Section } from './section';
 
 export interface Layout {
-  columns: number;
-  tiles: Tile[];
+  sections: Section[]
 }

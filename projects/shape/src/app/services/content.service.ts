@@ -1,31 +1,29 @@
-import { BehaviorSubject } from "rxjs";
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+import { Content } from "../models/content";
 import { ReadOnlyValueComponent } from "../values/read-only-value/read-only-value.component";
-import { Content, Layout } from '../models';
 
 @Injectable({
   providedIn: "root"
 })
-export class LayoutService {
-  private layoutSource = new BehaviorSubject<Layout>(null);
-  currentLayout = this.layoutSource.asObservable();
-
+export class ContentService {
+  private contentSource = new BehaviorSubject<Content>(null);
+  currentContent = this.contentSource.asObservable();
   constructor() {}
 
-  public loadLayout() {
-    this.layoutSource.next(layout2);
+  public loadContent(id: number) {
+    switch (id) {
+      case 1:
+        this.contentSource.next(layout2);
+        break;
+    }
   }
 }
 
-
-
-const layout = {
-  columns: 1,
-  tiles: [
+const layout2: Content = {
+  sections: [
     {
-      id: "tile1.1",
-      colspan: 1,
-      rowspan: 1,
+      type: "FORM",
       values: [
         {
           component: ReadOnlyValueComponent,
@@ -62,27 +60,30 @@ const layout = {
           label: "Date of Last Login",
           value: "8 jul 2017 10:44:06 "
         },
-
-        {
-          component: ReadOnlyValueComponent,
-          label: "Creator",
-          value: "Administrator, The"
-        },
-        {
-          component: ReadOnlyValueComponent,
-          label: "Created",
-          value: "22 jun 2012 11:46:13"
-        },
-        {
-          component: ReadOnlyValueComponent,
-          label: "Last Modifier",
-          value: "Administrator, The"
-        },
-        {
-          component: ReadOnlyValueComponent,
-          label: "Last Modified",
-          value: "  5 jun 2019 13:28:38"
-        },
+        [
+          {
+            component: ReadOnlyValueComponent,
+            label: "Creator",
+            value: "Administrator, The"
+          },
+          {
+            component: ReadOnlyValueComponent,
+            label: "Created",
+            value: "22 jun 2012 11:46:13"
+          }
+        ],
+        [
+          {
+            component: ReadOnlyValueComponent,
+            label: "Last Modifier",
+            value: "Administrator, The"
+          },
+          {
+            component: ReadOnlyValueComponent,
+            label: "Last Modified",
+            value: "5 jun 2019 13:28:38"
+          }
+        ],
         {
           component: ReadOnlyValueComponent,
           label: "Last Name",
@@ -111,10 +112,13 @@ const layout = {
       ]
     },
     {
-      id: "tile1.2",
-      colspan: 1,
-      rowspan: 1,
-      values: []
+      type: "TABLE"
+    },
+    {
+      type: "TABLE"
+    },
+    {
+      type: "TABLE"
     }
   ]
 };
