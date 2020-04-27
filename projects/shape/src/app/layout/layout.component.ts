@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ContentService } from '../services';
+import { ContentService } from "../services";
 
 @Component({
   selector: "eFaps-layout",

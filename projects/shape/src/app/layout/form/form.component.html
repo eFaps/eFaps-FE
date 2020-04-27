@@ -1,5 +1,5 @@
 <div class="form-section">
-  <div *ngFor="let value of section?.values" class="value">
+  <div *ngFor="let value of section?.items" class="value">
     <ng-container *ngIf="isArray(value)">
       <eFaps-value-container *ngFor="let val of value;let i = index" [value]="val" [ngStyle]="getArrayStyle(value, i)"></eFaps-value-container>
     </ng-container>

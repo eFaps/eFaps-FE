@@ -1,5 +1,5 @@
-import { Section } from './section';
+import { Section } from "./section";
 
 export interface Layout {
-  sections: Section[]
+  sections: Section[];
 }

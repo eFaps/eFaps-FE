@@ -1,15 +1,16 @@
-import { Value } from './value';
+import { Heading } from "./heading";
+import { Value } from "./value";
 
 export interface Section {
-  type: 'FORM' | 'TABLE';
+  type: "FORM" | "TABLE";
 }
 
-
 export interface FormSection extends Section {
-  type: 'FORM';
-  values: Array<Value | Value[]>
+  type: "FORM";
+  items: Array<Value | Value[] | Heading>;
 }
 
 export interface TableSection extends Section {
-  type: 'TABLE';
+  type: "TABLE";
+  heading?: Heading;
 }

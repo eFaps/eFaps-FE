@@ -5,7 +5,7 @@ import { FormSection, Value } from "../../models";
 @Component({
   selector: "eFaps-form",
   templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.scss"]
+  styleUrls: ["./form.component.scss"],
 })
 export class FormComponent implements OnInit {
   _section: FormSection;
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
 
   getArrayStyle(valAr: Value[], index: number) {
     let style = {
-      width: "calc(100% / " + valAr.length + ")"
+      width: "calc(100% / " + valAr.length + ")",
     };
     return style;
   }

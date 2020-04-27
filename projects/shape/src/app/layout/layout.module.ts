@@ -7,11 +7,19 @@ import { FormComponent } from "./form/form.component";
 import { LayoutRoutingModule } from "./layout-routing.module";
 import { LayoutComponent } from "./layout.component";
 import { TileComponent } from "./tile/tile.component";
-import { ContentComponent } from './content/content.component';
-import { TableComponent } from './table/table.component';
+import { ContentComponent } from "./content/content.component";
+import { TableComponent } from "./table/table.component";
+import { HeadingComponent } from "./heading/heading.component";
 
 @NgModule({
-  declarations: [LayoutComponent, FormComponent, TileComponent, ContentComponent, TableComponent],
+  declarations: [
+    LayoutComponent,
+    FormComponent,
+    TileComponent,
+    ContentComponent,
+    TableComponent,
+    HeadingComponent,
+  ],
   imports: [CommonModule, LayoutRoutingModule, MatGridListModule, ValuesModule],
 })
 export class LayoutModule {}

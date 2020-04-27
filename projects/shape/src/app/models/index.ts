@@ -1,4 +1,5 @@
 export * from "./content";
+export * from "./heading";
 export * from "./layout";
 export * from "./section";
 export * from "./tile";

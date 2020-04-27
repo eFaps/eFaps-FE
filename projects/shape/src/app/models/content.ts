@@ -1,5 +1,5 @@
-import { FormSection, TableSection } from './section';
+import { FormSection, TableSection } from "./section";
 
 export interface Content {
-  sections: Array<FormSection | TableSection>
+  sections: Array<FormSection | TableSection>;
 }
