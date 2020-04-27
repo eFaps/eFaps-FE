@@ -5,10 +5,12 @@ import { TableSection } from "../../models";
 @Component({
   selector: "eFaps-table",
   templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"],
+  styleUrls: ["./table.component.scss"]
 })
 export class TableComponent implements OnInit {
   _section: TableSection;
+  values = [];
+  columns = [];
   constructor() {}
 
   ngOnInit(): void {}
@@ -16,6 +18,8 @@ export class TableComponent implements OnInit {
   @Input()
   set section(section: TableSection) {
     this._section = section;
+    this.columns = section.columns;
+    this.values = section.values;
   }
 
   get section(): TableSection {

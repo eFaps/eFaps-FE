@@ -1,3 +1,4 @@
+export * from "./column";
 export * from "./content";
 export * from "./heading";
 export * from "./layout";
