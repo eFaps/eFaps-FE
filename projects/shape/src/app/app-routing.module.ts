@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./layout/layout.module").then((m) => m.LayoutModule),
   },
+  {
+    path: "nav",
+    loadChildren: () =>
+      import("./nav/nav.module").then((m) => m.NavModule),
+  },
 ];
 
 @NgModule({

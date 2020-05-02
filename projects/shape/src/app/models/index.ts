@@ -2,6 +2,7 @@ export * from "./column";
 export * from "./content";
 export * from "./heading";
 export * from "./layout";
+export * from "./nav-item";
 export * from "./section";
 export * from "./tile";
 export * from "./value-component";
