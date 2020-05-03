@@ -11,5 +11,6 @@ export interface Action {
 }
 
 export enum ActionType {
-  DASHBOARD
+  DASHBOARD = "DASHBOARD",
+  GRID = "GRID"
 }

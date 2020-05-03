@@ -7,23 +7,18 @@ import { BehaviorSubject, Observable } from "rxjs";
   providedIn: "root"
 })
 export class NavService {
-  private navSource = new BehaviorSubject<NavItem[]>(null);
+  private navSource = new BehaviorSubject<NavItem>(null);
   currentNav = this.navSource.asObservable();
   constructor(private http: HttpClient) {}
 
-  public load() {
-    //this.navSource.next(items);
-    this.getNav().subscribe( {
-      next: items => this.navSource.next(items)
-    })
-  }
-
-  private getNav(_createNew?: boolean): Observable<NavItem[]> {
+  public getNav(): Observable<NavItem[]> {
     const requestUrl = `http://localhost:8888/eFaps/servlet/rest/ui/nav`;
     return this.http.get<NavItem[]>(requestUrl);
   }
 
-  public loadFromUrl() {}
+  public navigate(item: NavItem) {
+    this.navSource.next(item);
+  }
 }
 
 const items: NavItem[] = [

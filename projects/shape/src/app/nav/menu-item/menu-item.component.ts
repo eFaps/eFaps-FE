@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild, Output } from "@angular/core";
 
 import { NavItem } from "../../models";
+import { NavService } from '../../services';
 
 @Component({
   selector: "eFaps-menu-item",
@@ -11,14 +12,11 @@ export class MenuItemComponent implements OnInit {
   @Input() items: NavItem[];
   @ViewChild("childMenu", { static: true }) public childMenu;
 
-  constructor() {}
+  constructor(private navService: NavService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  triggerAction(item: NavItem) {
+    this.navService.navigate(item)
   }
-
-
-    triggerAction(item: NavItem) {
-
-    }
 }
