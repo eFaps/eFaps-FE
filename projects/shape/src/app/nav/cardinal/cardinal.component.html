@@ -1,17 +1,17 @@
 <mat-toolbar>
-  <button mat-icon-button color="primary">
+  <button mat-icon-button color="primary" (click)="home()">
     <mat-icon>home</mat-icon>
   </button>
   <span *ngFor="let item of navItems">
     <span *ngIf="item.children && item.children.length > 0">
       <eFaps-menu-item #menu [items]="item.children"></eFaps-menu-item>
-      <button mat-button color="primary" [matMenuTriggerFor]="menu.childMenu">
+      <button mat-button color="primary" [matMenuTriggerFor]="menu.childMenu" (click)="triggerAction(item)">
         {{item.label}}
         <mat-icon>expand_more</mat-icon>
       </button>
     </span>
     <span *ngIf="!item.children || item.children.length === 0">
-      <button mat-button color="primary">
+      <button mat-button color="primary" (click)="triggerAction(item)">
         {{item.label}}
       </button>
     </span>
@@ -29,4 +29,7 @@
     </span>
   </mat-menu>
 </mat-toolbar>
-<eFaps-content-wrapper [url]="'https://angular.io/api/router/RouterLink'"></eFaps-content-wrapper>
+<!--
+<eFaps-content-wrapper [url]="'http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.TestPage'"></eFaps-content-wrapper>
+-->
+<eFaps-content-wrapper [url]="contentUrl"></eFaps-content-wrapper>

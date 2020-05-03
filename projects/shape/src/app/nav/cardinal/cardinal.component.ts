@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterContentChecked } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NavService } from '../../services/nav.service';
-import { NavItem } from '../../models';
+import { NavItem, Action, ActionType } from '../../models';
 
 @Component({
   selector: "eFaps-cardinal",
@@ -10,6 +10,7 @@ import { NavItem } from '../../models';
 export class CardinalComponent implements OnInit {
 
   navItems: NavItem[] = [];
+  contentUrl = "http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.TestPage"
   constructor(private navService: NavService) {}
 
   ngOnInit(): void {
@@ -22,4 +23,30 @@ export class CardinalComponent implements OnInit {
         this.navService.load();
 
   }
+
+  home() {
+    this.onAction({
+      type: ActionType.DASHBOARD
+    })
+  }
+
+  triggerAction(item: NavItem) {
+    console.log(item)
+    if (item.action) {
+        this.onAction(item.action)
+    }
+  }
+
+  onAction(action: Action) {
+    switch (action.type) {
+      case ActionType.DASHBOARD:
+          this.contentUrl = "http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.dashboard.DashboardPage"
+        break;
+
+      default:
+        break;
+    }
+  }
+
+
 }

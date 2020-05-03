@@ -13,6 +13,10 @@ export class NavService {
   public load() {
       this.navSource.next(items);
   }
+
+  public loadFromUrl() {
+
+  }
 }
 
 const items : NavItem[] =

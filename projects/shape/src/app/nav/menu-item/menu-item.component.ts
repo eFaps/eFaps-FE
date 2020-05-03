@@ -14,6 +14,11 @@ export class MenuItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    
+
   }
+
+
+    triggerAction(item: NavItem) {
+
+    }
 }
