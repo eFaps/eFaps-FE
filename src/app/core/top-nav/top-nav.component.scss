@@ -1,0 +1,21 @@
+.wrapper {
+  height: calc(100% - 10px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    display: flex;
+  }
+
+  eFaps-content-wrapper {
+    flex-grow:1;
+    margin-top: 5px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+  min-width: 50px;
+}

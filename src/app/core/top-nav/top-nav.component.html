@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div class="mat-elevation-z2 header">
+    <div>
+      <button mat-icon-button color="primary" (click)="home()">
+        <mat-icon>home</mat-icon>
+      </button>
+      <span *ngFor="let item of navItems">
+        <span *ngIf="item.children && item.children.length > 0">
+          <eFaps-menu-item #menu [items]="item.children"></eFaps-menu-item>
+          <button mat-button color="primary" [matMenuTriggerFor]="menu.childMenu" (click)="triggerAction(item)">
+            {{item.label}}
+            <mat-icon>expand_more</mat-icon>
+          </button>
+        </span>
+        <span *ngIf="!item.children || item.children.length === 0">
+          <button mat-button color="primary" (click)="triggerAction(item)">
+            {{item.label}}
+          </button>
+        </span>
+      </span>
+    </div>
+    <div class="spacer"></div>
+    <div>
+      <span>
+        <button mat-icon-button color="primary" [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </span>
+      <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+        <span mat-menu-item>FirstName LastName</span>
+        <span>
+          <button mat-menu-item color="primary">Logout</button>
+        </span>
+      </mat-menu>
+    </div>
+  </div>
+</div>
