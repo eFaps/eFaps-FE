@@ -42,7 +42,7 @@ export class TopNavComponent implements OnInit {
 
   triggerAction(item: NavItem) {
     console.log(item);
-    if (item && item.action) {
+    if (item && item.action && item.action.type != null) {
       this.onAction(item);
     }
   }
