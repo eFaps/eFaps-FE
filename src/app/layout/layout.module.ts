@@ -19,14 +19,14 @@ import { TileComponent } from "./tile/tile.component";
     TileComponent,
     ContentComponent,
     TableComponent,
-    HeadingComponent
+    HeadingComponent,
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     MatGridListModule,
     ValuesModule,
-    TableModule
-  ]
+    TableModule,
+  ],
 })
 export class LayoutModule {}

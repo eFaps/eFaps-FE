@@ -5,13 +5,12 @@ const routes: Routes = [
   //{ path: "", redirectTo: "ui", pathMatch: "full" },
   {
     path: "",
-    loadChildren: () =>
-      import("./core/core.module").then(m => m.CoreModule),
-  }
+    loadChildren: () => import("./core/core.module").then((m) => m.CoreModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { enableTracing: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

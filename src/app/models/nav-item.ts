@@ -2,15 +2,14 @@ export interface NavItem {
   id: string;
   label: string;
   children?: NavItem[];
-  action?: Action
+  action?: Action;
 }
 
-
 export interface Action {
-  type: ActionType
+  type: ActionType;
 }
 
 export enum ActionType {
   DASHBOARD = "DASHBOARD",
-  GRID = "GRID"
+  GRID = "GRID",
 }

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prettier": "prettier --write \"projects/**/src/**/*.ts\""
+    "prettier": "prettier --write \"**/src/**/*.ts\""
   },
   "private": true,
   "dependencies": {

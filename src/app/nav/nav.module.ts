@@ -8,10 +8,10 @@ import { MatIconModule } from "@angular/material/icon";
 import { CardinalComponent } from "./cardinal/cardinal.component";
 import { NavRoutingModule } from "./nav-routing.module";
 
-import { ContentWrapperComponent } from './content-wrapper/content-wrapper.component';
+import { ContentWrapperComponent } from "./content-wrapper/content-wrapper.component";
 
 @NgModule({
-  declarations: [CardinalComponent,  ContentWrapperComponent],
+  declarations: [CardinalComponent, ContentWrapperComponent],
   imports: [
     CommonModule,
     NavRoutingModule,
@@ -19,6 +19,6 @@ import { ContentWrapperComponent } from './content-wrapper/content-wrapper.compo
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-  ]
+  ],
 })
 export class NavModule {}

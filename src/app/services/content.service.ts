@@ -4,7 +4,7 @@ import { Content } from "../models/content";
 import { ReadOnlyValueComponent } from "../values/read-only-value/read-only-value.component";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class ContentService {
   private contentSource = new BehaviorSubject<Content>(null);
@@ -28,201 +28,201 @@ const layout2: Content = {
         {
           component: ReadOnlyValueComponent,
           label: "Type",
-          value: "Person"
+          value: "Person",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Name",
-          value: "Administrator"
+          value: "Administrator",
         },
         {
           component: ReadOnlyValueComponent,
           label: "UUID",
-          value: "1b182945-8136-4d42-bf61-d0c4a323a13d"
+          value: "1b182945-8136-4d42-bf61-d0c4a323a13d",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Revision",
-          value: "--"
+          value: "--",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Remark",
-          value: "1"
+          value: "1",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Status",
-          value: "active"
+          value: "active",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Date of Last Login",
-          value: "8 jul 2017 10:44:06 "
+          value: "8 jul 2017 10:44:06 ",
         },
         [
           {
             component: ReadOnlyValueComponent,
             label: "Creator",
-            value: "Administrator, The"
+            value: "Administrator, The",
           },
           {
             component: ReadOnlyValueComponent,
             label: "Created",
-            value: "22 jun 2012 11:46:13"
-          }
+            value: "22 jun 2012 11:46:13",
+          },
         ],
         [
           {
             component: ReadOnlyValueComponent,
             label: "Last Modifier",
-            value: "Administrator, The"
+            value: "Administrator, The",
           },
           {
             component: ReadOnlyValueComponent,
             label: "Last Modified",
-            value: "5 jun 2019 13:28:38"
-          }
+            value: "5 jun 2019 13:28:38",
+          },
         ],
         {
           component: ReadOnlyValueComponent,
           label: "Last Name",
-          value: "Administrator"
+          value: "Administrator",
         },
         {
           component: ReadOnlyValueComponent,
           label: "First Name",
-          value: "The"
+          value: "The",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Timezone",
-          value: " America/Lima"
+          value: " America/Lima",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Calendar",
-          value: "ISO8601 Java calendar system"
+          value: "ISO8601 Java calendar system",
         },
         {
           component: ReadOnlyValueComponent,
           label: "Language",
-          value: "es"
-        }
-      ]
+          value: "es",
+        },
+      ],
     },
     {
       type: "TABLE",
       heading: {
-        label: "Assigned Roles"
+        label: "Assigned Roles",
       },
       columns: [
         {
           header: "Name",
-          field: "name"
+          field: "name",
         },
         {
           header: "Status",
-          field: "status"
+          field: "status",
         },
         {
           header: "Remark",
-          field: "remark"
-        }
+          field: "remark",
+        },
       ],
       values: [
         {
           name: "Administration",
           status: "active",
-          remark: null
+          remark: null,
         },
 
         {
           name: "Common_Main_PwdChg",
           status: "active",
-          remark: null
+          remark: null,
         },
         {
           name: "Admin_REST",
           status: "active",
-          remark: null
+          remark: null,
         },
         {
           name: "History_Reader",
           status: "active",
-          remark: null
+          remark: null,
         },
         {
           name: "Contacts_Admin",
           status: "active",
-          remark: null
-        }
-      ]
+          remark: null,
+        },
+      ],
     },
     {
       type: "TABLE",
       heading: {
-        label: "Assigned Companies"
+        label: "Assigned Companies",
       },
       columns: [
         {
           header: "Name",
-          field: "name"
+          field: "name",
         },
         {
           header: "Status",
-          field: "status"
+          field: "status",
         },
         {
           header: "Remark",
-          field: "remark"
-        }
+          field: "remark",
+        },
       ],
       values: [
         {
           name: "B. Hogar Center",
           status: "active",
-          remark: null
+          remark: null,
         },
 
         {
           name: "Sielex Cayro",
           status: "active",
-          remark: null
+          remark: null,
         },
         {
           name: "Tiendas Mass",
           status: "active",
-          remark: null
-        }
-      ]
+          remark: null,
+        },
+      ],
     },
     {
       type: "TABLE",
       heading: {
-        label: "JAAS Keys"
+        label: "JAAS Keys",
       },
       columns: [
         {
           header: "User",
-          field: "user"
+          field: "user",
         },
         {
           header: "JAAS System",
-          field: "jassSystem"
+          field: "jassSystem",
         },
         {
           header: "Key",
-          field: "key"
-        }
+          field: "key",
+        },
       ],
       values: [
         {
           user: "Administrator",
           jassSystem: "eFaps",
-          key: "Administrator"
-        }
-      ]
-    }
-  ]
+          key: "Administrator",
+        },
+      ],
+    },
+  ],
 };

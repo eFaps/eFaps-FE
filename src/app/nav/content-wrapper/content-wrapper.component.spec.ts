@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ContentWrapperComponent } from './content-wrapper.component';
+import { ContentWrapperComponent } from "./content-wrapper.component";
 
-describe('ContentWrapperComponent', () => {
+describe("ContentWrapperComponent", () => {
   let component: ContentWrapperComponent;
   let fixture: ComponentFixture<ContentWrapperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [ContentWrapperComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ContentWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

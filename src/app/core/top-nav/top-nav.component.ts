@@ -6,7 +6,7 @@ import { NavService } from "src/app/services";
 @Component({
   selector: "eFaps-top-nav",
   templateUrl: "./top-nav.component.html",
-  styleUrls: ["./top-nav.component.scss"]
+  styleUrls: ["./top-nav.component.scss"],
 })
 export class TopNavComponent implements OnInit {
   navItems: NavItem[] = [];
@@ -21,14 +21,14 @@ export class TopNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.getNav().subscribe({
-      next: menu => {
+      next: (menu) => {
         this.navItems = menu;
-      }
+      },
     });
     this.navService.currentNav.subscribe({
-      next: navItem => {
+      next: (navItem) => {
         this.triggerAction(navItem);
-      }
+      },
     });
   }
 
@@ -37,8 +37,8 @@ export class TopNavComponent implements OnInit {
       id: "",
       label: "",
       action: {
-        type: ActionType.DASHBOARD
-      }
+        type: ActionType.DASHBOARD,
+      },
     });
   }
 
@@ -50,14 +50,15 @@ export class TopNavComponent implements OnInit {
   }
 
   onAction(item: NavItem) {
-    console.log(this.route)
+    console.log(this.route);
     switch (item.action.type) {
       case ActionType.DASHBOARD:
-        this.router.navigate(["ui",{ outlets: { layoutoutlet: ['wicket'] }}],
-  {
-    //relativeTo: this.route.parent // <--- PARENT activated route.
-  }
-);
+        this.router.navigate(
+          ["ui", { outlets: { layoutoutlet: ["wicket"] } }],
+          {
+            //relativeTo: this.route.parent // <--- PARENT activated route.
+          }
+        );
         this.contentUrl =
           "http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.dashboard.DashboardPage";
         break;

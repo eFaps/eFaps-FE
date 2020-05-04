@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PageWrapperComponent } from './page-wrapper.component';
+import { PageWrapperComponent } from "./page-wrapper.component";
 
-describe('PageWrapperComponent', () => {
+describe("PageWrapperComponent", () => {
   let component: PageWrapperComponent;
   let fixture: ComponentFixture<PageWrapperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [PageWrapperComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PageWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

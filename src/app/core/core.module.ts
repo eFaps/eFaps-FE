@@ -18,7 +18,7 @@ import { TopNavComponent } from "./top-nav/top-nav.component";
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
-  ]
+    MatIconModule,
+  ],
 })
 export class CoreModule {}

@@ -5,7 +5,7 @@ import { TableSection } from "../../models";
 @Component({
   selector: "eFaps-table",
   templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"]
+  styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit {
   _section: TableSection;

@@ -4,7 +4,7 @@ import { NavItem } from "../models";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class NavService {
   private navSource = new BehaviorSubject<NavItem>(null);
@@ -28,7 +28,7 @@ const items: NavItem[] = [
     children: [
       {
         id: "123.10",
-        label: "Search"
+        label: "Search",
       },
       {
         id: "123.10",
@@ -36,27 +36,27 @@ const items: NavItem[] = [
         children: [
           {
             id: "123.10",
-            label: "DB Properties"
+            label: "DB Properties",
           },
           {
             id: "123.10",
-            label: "Bundles"
+            label: "Bundles",
           },
           {
             id: "123.10",
-            label: "System Configurations"
+            label: "System Configurations",
           },
           {
             id: "123.10",
-            label: "Versions"
-          }
-        ]
+            label: "Versions",
+          },
+        ],
       },
       {
         id: "123.10",
-        label: "User"
-      }
-    ]
+        label: "User",
+      },
+    ],
   },
   {
     id: "123.5",
@@ -64,13 +64,13 @@ const items: NavItem[] = [
     children: [
       {
         id: "123.5",
-        label: "Buscar Contactos"
+        label: "Buscar Contactos",
       },
       {
         id: "123.5",
-        label: "Contactos por Nombre"
-      }
-    ]
+        label: "Contactos por Nombre",
+      },
+    ],
   },
   {
     id: "123.6",
@@ -82,19 +82,19 @@ const items: NavItem[] = [
         children: [
           {
             id: "123.5",
-            label: "Solicitud de COticasion"
-          }
-        ]
+            label: "Solicitud de COticasion",
+          },
+        ],
       },
       {
         id: "123.5",
-        label: "Contactos por Nombre"
-      }
-    ]
+        label: "Contactos por Nombre",
+      },
+    ],
   },
   {
     id: "123.7",
-    label: "Ventas"
+    label: "Ventas",
   },
   {
     id: "123.7",
@@ -106,7 +106,7 @@ const items: NavItem[] = [
         children: [
           {
             id: "123.7",
-            label: "Multilevel3"
+            label: "Multilevel3",
           },
           {
             id: "123.7",
@@ -123,16 +123,16 @@ const items: NavItem[] = [
                       {
                         id: "123.7",
                         label: "Multilevel6",
-                        children: []
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                        children: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

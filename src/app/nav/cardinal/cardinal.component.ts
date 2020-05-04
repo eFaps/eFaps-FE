@@ -5,7 +5,7 @@ import { NavItem, Action, ActionType } from "../../models";
 @Component({
   selector: "eFaps-cardinal",
   templateUrl: "./cardinal.component.html",
-  styleUrls: ["./cardinal.component.scss"]
+  styleUrls: ["./cardinal.component.scss"],
 })
 export class CardinalComponent implements OnInit {
   navItems: NavItem[] = [];
@@ -15,14 +15,14 @@ export class CardinalComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.getNav().subscribe({
-      next: menu => {
+      next: (menu) => {
         this.navItems = menu;
-      }
+      },
     });
     this.navService.currentNav.subscribe({
-      next: navItem => {
+      next: (navItem) => {
         this.triggerAction(navItem);
-      }
+      },
     });
   }
 
@@ -31,8 +31,8 @@ export class CardinalComponent implements OnInit {
       id: "",
       label: "",
       action: {
-        type: ActionType.DASHBOARD
-      }
+        type: ActionType.DASHBOARD,
+      },
     });
   }
 

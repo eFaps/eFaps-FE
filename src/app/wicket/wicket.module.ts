@@ -6,6 +6,6 @@ import { PageWrapperComponent } from "./page-wrapper/page-wrapper.component";
 
 @NgModule({
   declarations: [PageWrapperComponent],
-  imports: [CommonModule, WicketRoutingModule]
+  imports: [CommonModule, WicketRoutingModule],
 })
 export class WicketModule {}

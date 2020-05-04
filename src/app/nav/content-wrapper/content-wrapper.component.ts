@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 @Component({
   selector: "eFaps-content-wrapper",
   templateUrl: "./content-wrapper.component.html",
-  styleUrls: ["./content-wrapper.component.scss"]
+  styleUrls: ["./content-wrapper.component.scss"],
 })
 export class ContentWrapperComponent implements OnInit {
   _url: string;
