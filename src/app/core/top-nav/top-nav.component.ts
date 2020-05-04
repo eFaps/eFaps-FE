@@ -55,6 +55,7 @@ export class TopNavComponent implements OnInit {
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
         break;
       default:
+        this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
         break;
     }
   }
