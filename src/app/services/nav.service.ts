@@ -12,7 +12,7 @@ export class NavService {
   constructor(private http: HttpClient) {}
 
   public getNav(): Observable<NavItem[]> {
-    const requestUrl = `http://localhost:8888/eFaps/servlet/rest/ui/nav`;
+    const requestUrl = `../rest/ui/nav`;
     return this.http.get<NavItem[]>(requestUrl);
   }
 

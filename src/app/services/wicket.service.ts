@@ -18,12 +18,12 @@ export class WicketService {
           case ActionType.DASHBOARD:
             this.openPage({
               url:
-                "http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.dashboard.DashboardPage"
+                "../../wicket/bookmarkable/org.efaps.ui.wicket.pages.dashboard.DashboardPage"
             });
             break;
           case ActionType.GRID:
             this.openPage({
-              url: `http://localhost:8888/eFaps/wicket/bookmarkable/org.efaps.ui.wicket.pages.content.grid.GridPage?id=${navItem.id}`
+              url: `../../wicket/bookmarkable/org.efaps.ui.wicket.pages.content.grid.GridPage?id=${navItem.id}`
             });
             break;
           default:
