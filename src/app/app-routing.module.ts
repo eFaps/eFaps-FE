@@ -7,6 +7,10 @@ const routes: Routes = [
     path: "",
     loadChildren: () => import("./core/core.module").then((m) => m.CoreModule),
   },
+  {
+    path:"demo",
+    loadChildren: () => import("./layout/layout.module").then((m) => m.LayoutModule),
+  }
 ];
 
 @NgModule({

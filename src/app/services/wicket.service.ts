@@ -26,6 +26,11 @@ export class WicketService {
               url: `../../wicket/bookmarkable/org.efaps.ui.wicket.pages.content.grid.GridPage?id=${navItem.id}`
             });
             break;
+          case ActionType.FORM:
+              this.openPage({
+                url: `../../wicket/bookmarkable/org.efaps.ui.wicket.pages.content.form.FormPage?id=${navItem.id}`
+              });
+              break;
           default:
             break;
         }
