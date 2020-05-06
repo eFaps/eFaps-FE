@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Table } from '../models';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Table } from "../models";
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class TableService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  public getTable(id: string): Observable<Table[]> {
+  public getTable(id: string): Observable<Table> {
     const requestUrl = `../rest/ui/table/${id}`;
-    return this.http.get<Table[]>(requestUrl);
+    return this.http.get<Table>(requestUrl);
   }
 }

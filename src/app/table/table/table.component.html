@@ -1,6 +1,6 @@
-<div>
-  List of Persons
-</div>
+<h2>
+  {{table?.header}}
+</h2>
 <p-table [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true">
   <ng-template pTemplate="header" let-columns>
     <tr>
@@ -11,10 +11,10 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-value let-columns="columns">
-       <tr>
-           <td *ngFor="let col of columns">
-                   {{value[col.field]}}
-           </td>
-       </tr>
-   </ng-template>
+    <tr>
+      <td *ngFor="let col of columns">
+        {{value[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
 </p-table>

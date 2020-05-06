@@ -1,3 +1,3 @@
 export interface WicketPage {
-  url: string
+  url: string;
 }

@@ -5,7 +5,7 @@ import { WicketService } from "src/app/services/wicket.service";
 @Component({
   selector: "eFaps-page-wrapper",
   templateUrl: "./page-wrapper.component.html",
-  styleUrls: ["./page-wrapper.component.scss"]
+  styleUrls: ["./page-wrapper.component.scss"],
 })
 export class PageWrapperComponent implements OnInit {
   _url: string = "";
@@ -17,9 +17,9 @@ export class PageWrapperComponent implements OnInit {
 
   ngOnInit(): void {
     this.wicketService.currentPage.subscribe({
-      next: page => {
-        this.url = page.url
-      }
+      next: (page) => {
+        this.url = page.url;
+      },
     });
   }
 
