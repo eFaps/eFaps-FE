@@ -15,6 +15,12 @@ const routes: Routes = [
           import("../wicket/wicket.module").then((m) => m.WicketModule),
         outlet: "layoutoutlet",
       },
+      {
+        path: "table",
+        loadChildren: () =>
+          import("../table/table.module").then((m) => m.TableModule),
+        outlet: "layoutoutlet",
+      },
     ],
   },
 ];

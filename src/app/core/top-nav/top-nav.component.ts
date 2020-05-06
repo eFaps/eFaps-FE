@@ -50,10 +50,14 @@ export class TopNavComponent implements OnInit {
   onAction(item: NavItem) {
     console.log(this.route);
     switch (item.action.type) {
-      case ActionType.DASHBOARD:
       case ActionType.GRID:
-      case ActionType.FORM:
+        this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
+          state: { id: item.id }
+        });
+        break;
+      case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
+      case ActionType.FORM:
         break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
