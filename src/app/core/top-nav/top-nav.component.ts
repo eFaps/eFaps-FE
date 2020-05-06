@@ -51,9 +51,13 @@ export class TopNavComponent implements OnInit {
     console.log(this.route);
     switch (item.action.type) {
       case ActionType.GRID:
-        this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
-          state: { id: item.id },
-        });
+        this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]).then(
+          () => {
+            this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
+              state: { id: item.id },
+            });
+          }
+        )
         break;
       case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);

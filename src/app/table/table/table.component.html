@@ -4,7 +4,7 @@
   </h2>
   <p-table [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="90%"
            [virtualScroll]="true" [lazy]="true" [totalRecords]="totalRecords" [rows]="100" (onLazyLoad)="loadDataOnScroll($event)"
-           [loading]="loading">
+           [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand">
     <ng-template pTemplate="colgroup" let-columns>
       <colgroup>
         <col *ngFor="let col of columns">
@@ -12,7 +12,7 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
           {{col.header}}
           <p-sortIcon [field]="col.field"></p-sortIcon>
         </th>

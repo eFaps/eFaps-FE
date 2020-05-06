@@ -36,13 +36,12 @@ export class TableComponent implements OnInit {
   loadDataOnScroll(event: LazyLoadEvent) {
     if (this.table) {
       setTimeout(() => {
-console.log(event.first)
         this.loading = true;
         var end = event.first + event.rows;
-        end = end < this.totalRecords - 1 ? end : this.totalRecords - 1
+        end = end < this.totalRecords - 1 ? end : this.totalRecords - 1;
         this.values = this.table.values.slice(event.first, end);
         this.loading = false;
-      });
+      }, 250);
     }
   }
 }
