@@ -3,8 +3,15 @@
     {{table?.header}}
   </h2>
   <p-table [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="90%"
-           [virtualScroll]="true" [lazy]="true" [totalRecords]="totalRecords" [rows]="100" (onLazyLoad)="loadDataOnScroll($event)"
-           [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand">
+           [lazy]="isLazy"
+           [virtualScroll]="virtualScroll"
+           (onLazyLoad)="loadDataOnScroll($event)"
+           [totalRecords]="totalRecords"
+           [rows]="100"
+           [loading]="loading"
+           [reorderableColumns]="true"
+           columnResizeMode="expand"
+           [rowHover]="true">
     <ng-template pTemplate="colgroup" let-columns>
       <colgroup>
         <col *ngFor="let col of columns">
@@ -12,14 +19,14 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn >
           {{col.header}}
           <p-sortIcon [field]="col.field"></p-sortIcon>
         </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-value let-columns="columns">
-      <tr>
+      <tr class="ui-selectable-row">
         <td *ngFor="let col of columns">
           {{value[col.field]}}
         </td>

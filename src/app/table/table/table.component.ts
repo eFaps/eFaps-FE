@@ -16,6 +16,8 @@ export class TableComponent implements OnInit {
   table: Table;
   totalRecords: number;
   loading: boolean;
+  virtualScroll = true;
+  isLazy = true;
   constructor(private tableService: TableService, private location: Location) {}
 
   ngOnInit(): void {
@@ -26,8 +28,16 @@ export class TableComponent implements OnInit {
         console.log(table);
         this.table = table;
         this.columns = table.columns;
-        this.values = table.values.slice(1, 100);
         this.totalRecords = table.values.length;
+        if (this.totalRecords > 500) {
+          this.values = table.values.slice(1, 100);
+          this.isLazy = true;
+          this.virtualScroll = true;
+        } else {
+          this.values = table.values;
+          this.isLazy = false;
+          this.virtualScroll = false;
+        }
         this.loading = false;
       }
     });
