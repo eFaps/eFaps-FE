@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ActionType, NavItem } from "src/app/models";
-import { NavService } from "src/app/services";
+import { ActionType, NavItem, User } from "src/app/models";
+import { NavService, UserService } from "src/app/services";
 
 @Component({
   selector: "eFaps-top-nav",
@@ -10,11 +10,12 @@ import { NavService } from "src/app/services";
 })
 export class TopNavComponent implements OnInit {
   navItems: NavItem[] = [];
-
+  user: User;
   constructor(
-    private navService: NavService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private navService: NavService,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +29,11 @@ export class TopNavComponent implements OnInit {
         this.triggerAction(navItem);
       },
     });
+    this.userService.currentUser.subscribe({
+      next: (user) => {
+        this.user = user;
+      },
+    })
   }
 
   home() {

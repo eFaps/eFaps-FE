@@ -7,4 +7,5 @@ export * from "./section";
 export * from "./table";
 export * from "./tile";
 export * from "./value-component";
+export * from "./user";
 export * from "./value";

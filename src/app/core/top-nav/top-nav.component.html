@@ -20,14 +20,15 @@
       </span>
     </div>
     <div class="spacer"></div>
-    <div>
+    <div class="right">
+      <span>{{user?.company}}</span>
       <span>
         <button mat-icon-button color="primary" [matMenuTriggerFor]="userMenu">
           <mat-icon>account_circle</mat-icon>
         </button>
       </span>
       <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-        <span mat-menu-item>FirstName LastName</span>
+        <span mat-menu-item>{{user?.firstName}} {{user?.lastName}}</span>
         <span>
           <button mat-menu-item color="primary">Logout</button>
         </span>

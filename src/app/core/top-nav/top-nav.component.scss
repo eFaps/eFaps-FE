@@ -18,3 +18,11 @@
   flex: 1 1 auto;
   min-width: 50px;
 }
+
+.right {
+  display: flex;
+  span {
+    line-height: 40px;
+    font-weight: bold;
+  }
+}
