@@ -1,8 +1,10 @@
 <div class="wrapper">
-  <h2>
-    {{table?.header}}
-  </h2>
-  <p-table [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="90%"
+  <p-table #dt [columns]="columns"
+           [value]="values"
+           sortMode="multiple"
+           [resizableColumns]="true"
+           [scrollable]="true"
+           scrollHeight="calc(100% - 80px)"
            [lazy]="isLazy"
            [virtualScroll]="virtualScroll"
            (onLazyLoad)="loadDataOnScroll($event)"
@@ -12,6 +14,11 @@
            [reorderableColumns]="true"
            columnResizeMode="expand"
            [rowHover]="true">
+    <ng-template pTemplate="caption">
+      <div class="heading">
+        {{table?.header}}
+      </div>
+    </ng-template>
     <ng-template pTemplate="colgroup" let-columns>
       <colgroup>
         <col *ngFor="let col of columns">

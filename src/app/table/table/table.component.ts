@@ -12,6 +12,7 @@ import { LazyLoadEvent } from "primeng/api/lazyloadevent";
 export class TableComponent implements OnInit {
   columns: Column[] = [];
   values = [];
+  multiSortMeta = [];
   id: string;
   table: Table;
   totalRecords: number;
