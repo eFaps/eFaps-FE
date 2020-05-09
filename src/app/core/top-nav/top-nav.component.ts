@@ -68,6 +68,7 @@ export class TopNavComponent implements OnInit {
       case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
       case ActionType.FORM:
+        this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
         break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
