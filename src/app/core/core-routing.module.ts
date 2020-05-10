@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { LayoutComponent } from "./layout/layout.component";
-import { TableResolverService } from "../services";
 
 const routes: Routes = [
   { path: "", redirectTo: "ui", pathMatch: "full" },
@@ -20,6 +19,12 @@ const routes: Routes = [
         path: "table",
         loadChildren: () =>
           import("../table/table.module").then((m) => m.TableModule),
+        outlet: "layoutoutlet",
+      },
+      {
+        path: "content",
+        loadChildren: () =>
+          import("../content/content.module").then((m) => m.ContentModule),
         outlet: "layoutoutlet",
       },
     ],

@@ -8,13 +8,13 @@ import { ContentComponent } from "./content/content.component";
 import { FormComponent } from "./form/form.component";
 import { HeadingComponent } from "./heading/heading.component";
 import { LayoutRoutingModule } from "./layout-routing.module";
-import { LayoutComponent } from "./layout.component";
+import { LayoutComponent2 } from "./layout.component";
 import { TableComponent } from "./table/table.component";
 import { TileComponent } from "./tile/tile.component";
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    LayoutComponent2,
     FormComponent,
     TileComponent,
     ContentComponent,

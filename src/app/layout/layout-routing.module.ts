@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { LayoutComponent } from "./layout.component";
+import { LayoutComponent2 } from "./layout.component";
 
-const routes: Routes = [{ path: "d", component: LayoutComponent }];
+const routes: Routes = [{ path: "d", component: LayoutComponent2 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

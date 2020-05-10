@@ -3,7 +3,7 @@ import { Column, Table } from "src/app/models";
 import { TableService } from "src/app/services";
 import { Location } from "@angular/common";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "eFaps-table",
@@ -21,9 +21,8 @@ export class TableComponent implements OnInit {
   virtualScroll = true;
   isLazy = true;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-    private tableService: TableService,
-    private location: Location
   ) {
     this.route.data.subscribe({
       next: (value) => {
@@ -74,5 +73,22 @@ export class TableComponent implements OnInit {
       ref = value["OID"]
       console.log(ref)
     }
+
+    this.router
+      .navigate(["ui", { outlets: { layoutoutlet: null } }])
+      .then(() => {
+        this.router.navigate(
+          ["ui", { outlets: { layoutoutlet: ["content"] } }],
+          {
+            skipLocationChange: true,
+            replaceUrl: false,
+            queryParams: {
+              id: ref
+            },
+            state: { id: ref },
+          }
+        );
+      });
+
   }
 }
