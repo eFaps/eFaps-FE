@@ -120,14 +120,17 @@ const layout2: Content = {
         {
           header: "Name",
           field: "name",
+          ref: false,
         },
         {
           header: "Status",
           field: "status",
+          ref: false,
         },
         {
           header: "Remark",
           field: "remark",
+          ref: false,
         },
       ],
       values: [
@@ -168,14 +171,17 @@ const layout2: Content = {
         {
           header: "Name",
           field: "name",
+          ref: false,
         },
         {
           header: "Status",
           field: "status",
+          ref: false,
         },
         {
           header: "Remark",
           field: "remark",
+          ref: false,
         },
       ],
       values: [
@@ -206,14 +212,17 @@ const layout2: Content = {
         {
           header: "User",
           field: "user",
+          ref: false,
         },
         {
           header: "JAAS System",
           field: "jassSystem",
+          ref: false,
         },
         {
           header: "Key",
           field: "key",
+          ref: false,
         },
       ],
       values: [

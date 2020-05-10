@@ -1,19 +1,7 @@
 <div class="wrapper">
-  <p-table #dt [columns]="columns"
-           [value]="values"
-           sortMode="multiple"
-           [resizableColumns]="true"
-           [scrollable]="true"
-           scrollHeight="calc(100% - 80px)"
-           [lazy]="isLazy"
-           [virtualScroll]="virtualScroll"
-           (onLazyLoad)="loadDataOnScroll($event)"
-           [totalRecords]="totalRecords"
-           [rows]="100"
-           [loading]="loading"
-           [reorderableColumns]="true"
-           columnResizeMode="expand"
-           [rowHover]="true">
+  <p-table #dt [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="calc(100% - 80px)"
+           [lazy]="isLazy" [virtualScroll]="virtualScroll" (onLazyLoad)="loadDataOnScroll($event)" [totalRecords]="totalRecords" [rows]="100"
+           [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true">
     <ng-template pTemplate="caption">
       <div class="heading">
         {{table?.header}}
@@ -26,7 +14,7 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn >
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
           {{col.header}}
           <p-sortIcon [field]="col.field"></p-sortIcon>
         </th>
@@ -35,7 +23,12 @@
     <ng-template pTemplate="body" let-value let-columns="columns">
       <tr class="ui-selectable-row">
         <td *ngFor="let col of columns">
-          {{value[col.field]}}
+          <div>
+            <button mat-icon-button *ngIf="col.ref">
+              <mat-icon>info</mat-icon>
+            </button>
+            <span>{{value[col.field]}}</span>
+          </div>
         </td>
       </tr>
     </ng-template>
