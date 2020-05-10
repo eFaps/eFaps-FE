@@ -1,11 +1,16 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
+
+import { TableResolverService } from "../services";
 import { TableComponent } from "./table/table.component";
 
 const routes: Routes = [
   {
     path: "",
     component: TableComponent,
+    resolve: {
+      table: TableResolverService,
+    },
   },
 ];
 

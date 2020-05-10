@@ -15,7 +15,7 @@ export class TopNavComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private navService: NavService,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ export class TopNavComponent implements OnInit {
       next: (user) => {
         this.user = user;
       },
-    })
+    });
   }
 
   home() {
@@ -57,13 +57,21 @@ export class TopNavComponent implements OnInit {
     console.log(this.route);
     switch (item.action.type) {
       case ActionType.GRID:
-        this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]).then(
-          () => {
-            this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
-              state: { id: item.id },
-            });
-          }
-        )
+        this.router
+          .navigate(["ui", { outlets: { layoutoutlet: null } }])
+          .then(() => {
+            this.router.navigate(
+              ["ui", { outlets: { layoutoutlet: ["table"] } }],
+              {
+                skipLocationChange: true,
+                replaceUrl: false,
+                queryParams: {
+                  id: item.id,
+                },
+                state: { id: item.id },
+              }
+            );
+          });
         break;
       case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);

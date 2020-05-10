@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
 import { User } from "../models";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UserService {
   private userSource = new BehaviorSubject<User>(null);
@@ -15,7 +15,7 @@ export class UserService {
   setCurrent(): void {
     const requestUrl = `../rest/ui/user/current`;
     this.http.get<User>(requestUrl).subscribe({
-      next: user => this.userSource.next(user)
+      next: (user) => this.userSource.next(user),
     });
   }
 }
