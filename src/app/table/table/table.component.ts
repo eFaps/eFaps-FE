@@ -65,4 +65,14 @@ export class TableComponent implements OnInit {
       }, 250);
     }
   }
+
+  open(column: Column, value: any): void {
+    var ref = value[`${column.field}_AOID`]
+    if (ref) {
+      console.log(ref)
+    } else {
+      ref = value["OID"]
+      console.log(ref)
+    }
+  }
 }

@@ -24,7 +24,7 @@
       <tr class="ui-selectable-row">
         <td *ngFor="let col of columns">
           <div>
-            <button mat-icon-button *ngIf="col.ref">
+            <button mat-icon-button *ngIf="col.ref" (click)="open(col, value)">
               <mat-icon>info</mat-icon>
             </button>
             <span>{{value[col.field]}}</span>
