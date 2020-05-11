@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Column, Table } from "src/app/models";
-import { TableService } from "src/app/services";
-import { Location } from "@angular/common";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
 import { ActivatedRoute, Router } from "@angular/router";
 

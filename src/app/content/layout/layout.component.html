@@ -1,7 +1,8 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="">
-    <h1>Some tab content</h1>
-    <p>...</p>
+    <ng-template matTabContent>
+      <eFaps-form></eFaps-form>
+    </ng-template>
   </mat-tab>
   <mat-tab label="Documentos">
     <h1>Some more tab content</h1>

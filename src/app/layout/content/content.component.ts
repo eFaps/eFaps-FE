@@ -12,10 +12,6 @@ export class ContentComponent implements OnInit {
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.contentService.currentContent.subscribe({
-      next: (content) => {
-        this.content = content;
-      },
-    });
+    
   }
 }
