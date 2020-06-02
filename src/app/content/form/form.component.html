@@ -1,1 +1,10 @@
-<p>form works!</p>
+<div class="form-section">
+  <div *ngFor="let value of section?.items" class="value">
+    <ng-container *ngIf="isArray(value)">
+      <eFaps-value-container *ngFor="let val of value;let i = index" [value]="val" [ngStyle]="getArrayStyle(value, i)"></eFaps-value-container>
+    </ng-container>
+    <ng-container *ngIf="!isArray(value)">
+      <eFaps-value-container [value]="value"></eFaps-value-container>
+    </ng-container>
+  </div>
+</div>

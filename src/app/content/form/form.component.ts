@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormSection, Value } from 'src/app/models';
 
 @Component({
   selector: 'eFaps-form',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  _section: FormSection;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  @Input()
+  set section(section: FormSection) {
+    this._section = section;
+  }
+
+  get section(): FormSection {
+    return this._section;
+  }
+
+  isArray(obj: any) {
+    return Array.isArray(obj);
+  }
+
+  getArrayStyle(valAr: Value[], index: number) {
+    let style = {
+      width: "calc(100% / " + valAr.length + ")",
+    };
+    return style;
   }
 
 }

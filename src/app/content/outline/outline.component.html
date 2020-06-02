@@ -1,4 +1,6 @@
 <div>
   <h1>{{header}}</h1>
 </div>
-<p>outline works!</p>
+<div *ngFor="let section of sections">
+  <eFaps-form *ngIf="'FORM' == section.type" [section]="section"></eFaps-form>
+</div>

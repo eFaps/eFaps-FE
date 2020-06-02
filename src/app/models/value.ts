@@ -1,7 +1,8 @@
-import { Type } from "@angular/core";
-
 export interface Value {
-  component: Type<any>;
+  type: ValueType,
   label: string;
   value: any;
+}
+enum ValueType {
+  READ_ONLY
 }

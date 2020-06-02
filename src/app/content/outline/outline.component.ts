@@ -11,7 +11,7 @@ export class OutlineComponent implements OnInit {
   @Input() navItem: NavItem
   @Input() outline: Outline
   @Input() oid: string
-  sections: Section[];
+  sections: Section[] = [];
   header: string;
 
   constructor(private contentService: ContentService) { }
