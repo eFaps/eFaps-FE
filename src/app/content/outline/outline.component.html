@@ -3,4 +3,5 @@
 </div>
 <div *ngFor="let section of sections">
   <eFaps-form *ngIf="'FORM' == section.type" [section]="section"></eFaps-form>
+  <eFaps-table *ngIf="'TABLE' == section.type" [section]="section"></eFaps-table>
 </div>
