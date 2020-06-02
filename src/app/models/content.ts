@@ -1,5 +1,8 @@
-import { FormSection, TableSection } from "./section";
+import { NavItem } from './nav-item';
+import { Outline } from './outline';
 
 export interface Content {
-  sections: Array<FormSection | TableSection>;
+  nav: NavItem[];
+  selected: string;
+  outline: Outline
 }

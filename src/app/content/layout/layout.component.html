@@ -1,19 +1,8 @@
-<mat-tab-group animationDuration="0ms">
-  <mat-tab label="">
+<mat-tab-group animationDuration="0ms" [selectedIndex]="selectedIndex">
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.label">
     <ng-template matTabContent>
-      <eFaps-form></eFaps-form>
+      <eFaps-outline [navItem]="tab" [outline]="index == selectedIndex ? content.outline : null" [oid]="content.outline.oid">
+      </eFaps-outline>
     </ng-template>
-  </mat-tab>
-  <mat-tab label="Documentos">
-    <h1>Some more tab content</h1>
-    <p>...</p>
-  </mat-tab>
-  <mat-tab label="Facturacion">
-    <h1>Some more tab content</h1>
-    <p>...</p>
-  </mat-tab>
-  <mat-tab label="Archivos">
-    <h1>Some more tab content</h1>
-    <p>...</p>
   </mat-tab>
 </mat-tab-group>

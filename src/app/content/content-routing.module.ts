@@ -7,8 +7,8 @@ import { ContentResolverService } from '../services';
 const routes: Routes = [{
   path: "",
   component: LayoutComponent,
-  resolve: {
-    table: ContentResolverService,
+  resolve: { 
+    content: ContentResolverService,
   },
 },];
 
