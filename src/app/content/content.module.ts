@@ -9,13 +9,15 @@ import { FormComponent } from "./form/form.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
 import { TableComponent } from "./table/table.component";
+import { HeadingComponent } from './heading/heading.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     FormComponent,
     OutlineComponent,
-    TableComponent
+    TableComponent,
+    HeadingComponent
   ],
   imports: [
     CommonModule,

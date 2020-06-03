@@ -1,0 +1,5 @@
+<h1 *ngIf="section?.level == 1">{{section?.header}}</h1>
+<h2 *ngIf="section?.level == 2">{{section?.header}}</h2>
+<h3 *ngIf="section?.level == 3">{{section?.header}}</h3>
+<h4 *ngIf="section?.level == 4">{{section?.header}}</h4>
+<h5 *ngIf="section?.level && section?.level > 4">{{section?.header}}</h5>
