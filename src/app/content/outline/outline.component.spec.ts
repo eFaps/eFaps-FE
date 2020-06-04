@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { OutlineComponent } from './outline.component';
+import { OutlineComponent } from "./outline.component";
 
-describe('OutlineComponent', () => {
+describe("OutlineComponent", () => {
   let component: OutlineComponent;
   let fixture: ComponentFixture<OutlineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OutlineComponent ]
-    })
-    .compileComponents();
+      declarations: [OutlineComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('OutlineComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

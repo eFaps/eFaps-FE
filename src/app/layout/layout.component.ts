@@ -10,6 +10,6 @@ export class LayoutComponent2 implements OnInit {
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-  //  this.contentService.loadContent(1);
+    //  this.contentService.loadContent(1);
   }
 }

@@ -1,4 +1,4 @@
-import { FormSection, TableSection } from './section';
+import { FormSection, TableSection } from "./section";
 
 export interface Outline {
   oid: string;

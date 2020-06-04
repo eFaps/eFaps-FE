@@ -9,7 +9,7 @@ import { FormComponent } from "./form/form.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
 import { TableComponent } from "./table/table.component";
-import { HeadingComponent } from './heading/heading.component';
+import { HeadingComponent } from "./heading/heading.component";
 
 @NgModule({
   declarations: [
@@ -17,14 +17,14 @@ import { HeadingComponent } from './heading/heading.component';
     FormComponent,
     OutlineComponent,
     TableComponent,
-    HeadingComponent
+    HeadingComponent,
   ],
   imports: [
     CommonModule,
     ContentRoutingModule,
     MatTabsModule,
     ValuesModule,
-    TableModule
-  ]
+    TableModule,
+  ],
 })
 export class ContentModule {}

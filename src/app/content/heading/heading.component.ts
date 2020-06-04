@@ -4,7 +4,7 @@ import { HeadingSection } from "src/app/models";
 @Component({
   selector: "eFaps-heading",
   templateUrl: "./heading.component.html",
-  styleUrls: ["./heading.component.scss"]
+  styleUrls: ["./heading.component.scss"],
 })
 export class HeadingComponent implements OnInit {
   _section: HeadingSection;

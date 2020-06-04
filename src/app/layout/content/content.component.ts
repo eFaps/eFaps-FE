@@ -11,7 +11,5 @@ export class ContentComponent implements OnInit {
   content: Content;
   constructor(private contentService: ContentService) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }

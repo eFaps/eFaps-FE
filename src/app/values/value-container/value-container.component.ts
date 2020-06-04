@@ -4,7 +4,7 @@ import {
   ComponentFactoryResolver,
   Input,
   OnInit,
-  ViewChild
+  ViewChild,
 } from "@angular/core";
 
 import { Value, ValueComponent } from "../../models";
@@ -14,7 +14,7 @@ import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.compo
 @Component({
   selector: "eFaps-value-container",
   templateUrl: "./value-container.component.html",
-  styleUrls: ["./value-container.component.scss"]
+  styleUrls: ["./value-container.component.scss"],
 })
 export class ValueContainerComponent implements OnInit, AfterViewInit {
   private _value: Value;

@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormSection, Value } from 'src/app/models';
+import { Component, OnInit, Input } from "@angular/core";
+import { FormSection, Value } from "src/app/models";
 
 @Component({
-  selector: 'eFaps-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: "eFaps-form",
+  templateUrl: "./form.component.html",
+  styleUrls: ["./form.component.scss"],
 })
 export class FormComponent implements OnInit {
   _section: FormSection;
@@ -32,5 +32,4 @@ export class FormComponent implements OnInit {
     };
     return style;
   }
-
 }

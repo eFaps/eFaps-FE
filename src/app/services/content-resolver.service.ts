@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Content } from '../models';
-import { Observable } from 'rxjs';
-import { ContentService } from './content.service';
+import { Injectable } from "@angular/core";
+import {
+  Resolve,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+} from "@angular/router";
+import { Content } from "../models";
+import { Observable } from "rxjs";
+import { ContentService } from "./content.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
-export class ContentResolverService implements Resolve<Content>{
-
-  constructor(private contentService: ContentService) { }
+export class ContentResolverService implements Resolve<Content> {
+  constructor(private contentService: ContentService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,

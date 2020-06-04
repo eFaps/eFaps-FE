@@ -18,10 +18,7 @@ export class TableComponent implements OnInit {
   loading: boolean;
   virtualScroll = true;
   isLazy = true;
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.route.data.subscribe({
       next: (value) => {
         this.table = value.table;
@@ -64,12 +61,12 @@ export class TableComponent implements OnInit {
   }
 
   open(column: Column, value: any): void {
-    var ref = value[`${column.field}_AOID`]
+    var ref = value[`${column.field}_AOID`];
     if (ref) {
-      console.log(ref)
+      console.log(ref);
     } else {
-      ref = value["OID"]
-      console.log(ref)
+      ref = value["OID"];
+      console.log(ref);
     }
 
     this.router
@@ -81,12 +78,11 @@ export class TableComponent implements OnInit {
             skipLocationChange: true,
             replaceUrl: false,
             queryParams: {
-              id: ref
+              id: ref,
             },
             state: { id: ref },
           }
         );
       });
-
   }
 }

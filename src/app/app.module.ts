@@ -18,10 +18,10 @@ registerLocaleData(localeFr, "es");
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production
-    })
+      enabled: environment.production,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

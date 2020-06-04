@@ -5,7 +5,7 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 
 @Component({
@@ -17,19 +17,19 @@ import {
       state(
         "small",
         style({
-          width: "80px"
+          width: "80px",
         })
       ),
       state(
         "wide",
         style({
-          width: "200px"
+          width: "200px",
         })
       ),
       transition("small=>wide", animate("300ms")),
-      transition("wide=>small", animate("300ms"))
-    ])
-  ]
+      transition("wide=>small", animate("300ms")),
+    ]),
+  ],
 })
 export class SearchComponent implements OnInit {
   currentState = "small";

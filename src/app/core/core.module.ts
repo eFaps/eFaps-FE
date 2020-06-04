@@ -12,14 +12,14 @@ import { LayoutComponent } from "./layout/layout.component";
 import { MenuItemComponent } from "./menu-item/menu-item.component";
 import { SearchComponent } from "./search/search.component";
 import { TopNavComponent } from "./top-nav/top-nav.component";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     LayoutComponent,
     TopNavComponent,
     MenuItemComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -27,8 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
-
-  ]
+    MatIconModule,
+  ],
 })
 export class CoreModule {}
