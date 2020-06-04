@@ -7,7 +7,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
-
+import { registerLocaleData } from "@angular/common";
+import localeFr from "@angular/common/locales/es";
+registerLocaleData(localeFr, "es");
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,10 +18,10 @@ import { environment } from "../environments/environment";
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production,
-    }),
+      enabled: environment.production
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
