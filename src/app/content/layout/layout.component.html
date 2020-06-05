@@ -1,23 +1,23 @@
 <div class="container">
   <mat-drawer-container hasBackdrop="false">
-    <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false">
-      <div *ngIf="isOpen" class="toggle" (click)="drawer.toggle()" [class.overDrawer]="overDrawer">
+    <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false" (mouseleave)="leaveDrawer()">
+      <div *ngIf="isOpen" class="toggle" (click)="closeDrawer()" [class.overDrawer]="overDrawer">
         <div>
           <mat-icon>keyboard_arrow_left</mat-icon>
         </div>
       </div>
-      <div class="drawrer">
+      <div class="drawer">
         Drawer content
       </div>
     </mat-drawer>
     <mat-drawer-content>
       <div class="content">
-        <div class="dragbar" [class.closed]="!isOpen">
-          <div *ngIf="!isOpen" class="dragbar-toggle" (click)="drawer.toggle()">
-            <div>
-              <mat-icon>keyboard_arrow_right</mat-icon>
-            </div>
+        <div *ngIf="!isOpen" class="dragbar-toggle" (click)="openDrawer()">
+          <div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
           </div>
+        </div>
+        <div class="dragbar" [class.closed]="!isOpen" (mouseenter)="enterBar()" (mouseleave)="leaveBar()">
         </div>
         <div>Main content</div>
       </div>
