@@ -1,7 +1,8 @@
-import {DragDropModule} from '@angular/cdk/drag-drop'
+import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatTabsModule } from "@angular/material/tabs";
 import { TableModule } from "primeng/table";
@@ -30,7 +31,8 @@ import { TableComponent } from "./table/table.component";
     TableModule,
     MatSidenavModule,
     MatIconModule,
-    DragDropModule
+    DragDropModule,
+    MatListModule
   ]
 })
 export class ContentModule {}

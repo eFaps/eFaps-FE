@@ -22,7 +22,7 @@
       height: 100%;
 
       .dragbar {
-        width: 4px;
+        flex: 0 0 4px;
         background-color: #eaeaea;
 
         &:hover {
@@ -31,13 +31,16 @@
         }
 
         &.closed {
-          width: 16px;
+          flex: 0 0 16px;
 
           &:hover {
             cursor: auto;
             background-color: #c4c4c4;
           }
         }
+      }
+      .outline {
+        margin-left: 6px;
       }
     }
   }
@@ -124,4 +127,8 @@
       left: -3px;
     }
   }
+}
+
+button.selected {
+  background-color: rgba(0, 0, 0, 0.04);
 }

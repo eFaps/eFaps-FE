@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { NavItem, Content } from "src/app/models";
+import { NavItem, Content, Outline } from "src/app/models";
 import { MatDrawer, MatDrawerContainer } from "@angular/material/sidenav";
-import { DragRef, DragDrop } from "@angular/cdk/drag-drop";
+import { DragDrop } from "@angular/cdk/drag-drop";
+import { ContentService } from "src/app/services";
 
 @Component({
   selector: "eFaps-layout",
@@ -11,19 +12,26 @@ import { DragRef, DragDrop } from "@angular/cdk/drag-drop";
 })
 export class LayoutComponent implements OnInit, AfterViewInit {
   content: Content;
-  tabs: NavItem[] = [];
-  selectedIndex = 0;
+  nav: NavItem[] = [];
+
   overDrawer = false;
   mode = "push";
   drawerWidth = 250;
   isOpen = true;
   shouldTrigger = false;
 
+  currentNav: NavItem;
+  currentOutline: Outline;
+
   @ViewChild("drawerContainer") drawerContainer: MatDrawerContainer;
   @ViewChild("drawer") drawer: MatDrawer;
   @ViewChild("dragbar") dragbar: HTMLElement;
 
-  constructor(private route: ActivatedRoute, private dragDrop: DragDrop) {
+  constructor(
+    private route: ActivatedRoute,
+    private dragDrop: DragDrop,
+    private contentService: ContentService
+  ) {
     this.route.data.subscribe({
       next: value => {
         this.content = value.content;
@@ -32,8 +40,9 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.tabs = this.content.nav;
-    this.selectedIndex = this.tabs.findIndex(item => {
+    this.nav = this.content.nav;
+    this.currentOutline = this.content.outline;
+    this.currentNav = this.nav.find(item => {
       return item.id == this.content.selected;
     });
   }
@@ -58,7 +67,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       }
     });
     ref.released.subscribe({
-      next: source => {
+      next: _ => {
         ref.reset();
         this.drawerContainer.updateContentMargins();
       }
@@ -94,5 +103,16 @@ export class LayoutComponent implements OnInit, AfterViewInit {
 
   leaveBar() {
     this.shouldTrigger = false;
+  }
+
+  loadContent(navItem: NavItem) {
+    this.currentNav = navItem;
+    this.contentService
+      .getOutline(this.currentOutline.oid, navItem.id)
+      .subscribe({
+        next: outline => {
+          this.currentOutline = outline;
+        }
+      });
   }
 }

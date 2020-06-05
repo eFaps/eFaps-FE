@@ -1,13 +1,16 @@
 <div class="container">
   <mat-drawer-container #drawerContainer hasBackdrop="false">
-    <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false" (mouseleave)="leaveDrawer()">
+    <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false"
+                (mouseleave)="leaveDrawer()">
       <div *ngIf="isOpen" class="toggle" (click)="closeDrawer()" [class.overDrawer]="overDrawer">
         <div>
           <mat-icon>keyboard_arrow_left</mat-icon>
         </div>
       </div>
       <div class="drawer">
-        Drawer content
+        <mat-action-list>
+          <button *ngFor="let item of nav" mat-list-item [class.selected]="currentNav===item" (click)="loadContent(item)"> {{item.label}} </button>
+        </mat-action-list>
       </div>
     </mat-drawer>
     <mat-drawer-content>
@@ -19,7 +22,10 @@
         </div>
         <div class="dragbar" #dragbar [class.closed]="!isOpen" (mouseenter)="enterBar()" (mouseleave)="leaveBar()">
         </div>
-        <div>Main content</div>
+        <div class="outline">
+            <eFaps-outline [navItem]="currentNav" [outline]="currentOutline" [oid]="currentOutline.oid">
+            </eFaps-outline>
+        </div>
       </div>
     </mat-drawer-content>
   </mat-drawer-container>
