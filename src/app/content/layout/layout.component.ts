@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { NavItem, Content } from "src/app/models";
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: "eFaps-layout",
@@ -14,8 +15,8 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   overDrawer = false;
   mode = 'push'
   drawerWidth = 250
-
-  @ViewChild('drawer') drawer: ElementRef;
+  isOpen = true;
+  @ViewChild('drawer') drawer: MatDrawer;
 
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe({
@@ -34,6 +35,15 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.drawer.nativeElement.getBoundingClientRect());
+    this.drawer.closedStart.subscribe({
+      next: () => {
+        this.isOpen = false;
+      }
+    })
+    this.drawer.openedStart.subscribe({
+      next: () => {
+        this.isOpen = true;
+      }
+    })
   }
 }

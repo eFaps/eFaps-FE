@@ -23,10 +23,20 @@
 
       .dragbar {
         width: 4px;
-        background-color: red;
+        background-color: #eaeaea;
 
         &:hover {
           cursor: col-resize;
+          background-color: red;
+        }
+
+        &.closed {
+          width: 16px;
+
+          &:hover {
+            cursor: auto;
+            background-color: #c4c4c4;
+          }
         }
       }
     }
@@ -68,6 +78,43 @@
     margin-right: auto;
     width: 20px;
     display: none;
+
+    mat-icon {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      top: -3px;
+      left: -3px;
+    }
+  }
+}
+
+.dragbar-toggle {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 30px;
+  position: relative;
+  top: 10px;
+  width: 30px;
+  z-index: 150;
+
+  &:hover {
+    div {
+      background-color: blue;
+    }
+  }
+
+  div {
+    background-color: white;
+    border-color: grey;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 0 1px rgba(9,30,66,0.08),0 2px 4px 1px rgba(9,30,66,0.08);
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20px;
 
     mat-icon {
       height: 20px;
