@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <p-table #dt [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="calc(100% - 80px)"
+  <p-table #dt [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="flex"
            [lazy]="isLazy" [virtualScroll]="virtualScroll" (onLazyLoad)="loadDataOnScroll($event)" [totalRecords]="totalRecords" [rows]="100"
            [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true">
     <ng-template pTemplate="caption">
