@@ -1,8 +1,21 @@
-<mat-tab-group animationDuration="0ms" [selectedIndex]="selectedIndex">
-  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.label">
-    <ng-template matTabContent>
-      <eFaps-outline [navItem]="tab" [outline]="index == selectedIndex ? content.outline : null" [oid]="content.outline.oid">
-      </eFaps-outline>
-    </ng-template>
-  </mat-tab>
-</mat-tab-group>
+<div class="container">
+  <mat-drawer-container hasBackdrop="false">
+    <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false">
+      <div class="toggle" (click)="drawer.toggle()" [class.overDrawer]="overDrawer">
+        <div>
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+      </div>
+      <div class="drawrer">
+        Drawer content
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="content">
+        <div class="dragbar">
+        </div>
+        <div>Main content</div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

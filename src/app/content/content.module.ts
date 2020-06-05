@@ -1,15 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { MatIconModule } from "@angular/material/icon";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatTabsModule } from "@angular/material/tabs";
 import { TableModule } from "primeng/table";
 
 import { ValuesModule } from "../values/values.module";
 import { ContentRoutingModule } from "./content-routing.module";
 import { FormComponent } from "./form/form.component";
+import { HeadingComponent } from "./heading/heading.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
 import { TableComponent } from "./table/table.component";
-import { HeadingComponent } from "./heading/heading.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,7 @@ import { HeadingComponent } from "./heading/heading.component";
     FormComponent,
     OutlineComponent,
     TableComponent,
-    HeadingComponent,
+    HeadingComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,8 @@ import { HeadingComponent } from "./heading/heading.component";
     MatTabsModule,
     ValuesModule,
     TableModule,
-  ],
+    MatSidenavModule,
+    MatIconModule
+  ]
 })
 export class ContentModule {}
