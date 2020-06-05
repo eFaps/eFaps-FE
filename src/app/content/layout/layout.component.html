@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-drawer-container hasBackdrop="false">
+  <mat-drawer-container #drawerContainer hasBackdrop="false">
     <mat-drawer #drawer mode="side" opened [mode]="mode" [style.width.px]="drawerWidth" (mouseover)="overDrawer=true" (mouseout)="overDrawer=false" (mouseleave)="leaveDrawer()">
       <div *ngIf="isOpen" class="toggle" (click)="closeDrawer()" [class.overDrawer]="overDrawer">
         <div>
@@ -17,7 +17,7 @@
             <mat-icon>keyboard_arrow_right</mat-icon>
           </div>
         </div>
-        <div class="dragbar" [class.closed]="!isOpen" (mouseenter)="enterBar()" (mouseleave)="leaveBar()">
+        <div class="dragbar" #dragbar [class.closed]="!isOpen" (mouseenter)="enterBar()" (mouseleave)="leaveBar()">
         </div>
         <div>Main content</div>
       </div>

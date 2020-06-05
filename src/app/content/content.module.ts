@@ -1,3 +1,4 @@
+import {DragDropModule} from '@angular/cdk/drag-drop'
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
@@ -28,7 +29,8 @@ import { TableComponent } from "./table/table.component";
     ValuesModule,
     TableModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    DragDropModule
   ]
 })
 export class ContentModule {}

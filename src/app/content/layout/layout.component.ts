@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { NavItem, Content } from "src/app/models";
-import { MatDrawer } from "@angular/material/sidenav";
+import { MatDrawer, MatDrawerContainer } from "@angular/material/sidenav";
+import { DragRef, DragDrop } from "@angular/cdk/drag-drop";
 
 @Component({
   selector: "eFaps-layout",
@@ -17,9 +18,12 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   drawerWidth = 250;
   isOpen = true;
   shouldTrigger = false;
-  @ViewChild("drawer") drawer: MatDrawer;
 
-  constructor(private route: ActivatedRoute) {
+  @ViewChild("drawerContainer") drawerContainer: MatDrawerContainer;
+  @ViewChild("drawer") drawer: MatDrawer;
+  @ViewChild("dragbar") dragbar: HTMLElement;
+
+  constructor(private route: ActivatedRoute, private dragDrop: DragDrop) {
     this.route.data.subscribe({
       next: value => {
         this.content = value.content;
@@ -44,6 +48,19 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     this.drawer.openedStart.subscribe({
       next: () => {
         this.isOpen = true;
+      }
+    });
+    const ref = this.dragDrop.createDrag(this.dragbar);
+    ref.lockAxis = "x";
+    ref.moved.subscribe({
+      next: ev => {
+        this.drawerWidth = ev.pointerPosition.x - 2;
+      }
+    });
+    ref.released.subscribe({
+      next: source => {
+        ref.reset();
+        this.drawerContainer.updateContentMargins();
       }
     });
   }
