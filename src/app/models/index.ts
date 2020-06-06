@@ -4,6 +4,7 @@ export * from "./heading";
 export * from "./layout";
 export * from "./nav-item";
 export * from "./outline";
+export * from "./search";
 export * from "./section";
 export * from "./table";
 export * from "./tile";
