@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ValueComponent, Value } from "../../models";
 
 @Component({
@@ -7,12 +7,17 @@ import { ValueComponent, Value } from "../../models";
   styleUrls: ["./read-only-value.component.scss"],
 })
 export class ReadOnlyValueComponent implements OnInit, ValueComponent {
-  value: Value;
+  _value: Value;
   constructor() {}
 
   ngOnInit(): void {}
 
-  setValue(value: Value) {
-    this.value = value;
+  @Input()
+  set value(value: Value) {
+    this._value = value;
+  }
+
+  get value() {
+    return this._value
   }
 }

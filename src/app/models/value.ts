@@ -3,6 +3,7 @@ export interface Value {
   label: string;
   value: any;
 }
-enum ValueType {
-  READ_ONLY,
+export enum ValueType {
+  READ_ONLY = "READ_ONLY",
+  INPUT = "INPUT"
 }

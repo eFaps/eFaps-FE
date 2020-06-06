@@ -6,6 +6,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 
+import { SectionsModule } from '../sections/sections.module';
 import { SearchDialogComponent } from "./search-dialog/search-dialog.component";
 import { SubMenuComponent } from './sub-menu/sub-menu.component';
 
@@ -17,7 +18,8 @@ import { SubMenuComponent } from './sub-menu/sub-menu.component';
     MatButtonModule,
     DragDropModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    SectionsModule,
   ],
   entryComponents: [SearchDialogComponent]
 })

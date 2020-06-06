@@ -4,28 +4,26 @@ import {
   ComponentFactoryResolver,
   Input,
   OnInit,
-  ViewChild,
+  ViewChild
 } from "@angular/core";
 
-import { Value, ValueComponent } from "../../models";
+import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
+import { InputValueComponent } from "../input-value/input-value.component";
 
 @Component({
   selector: "eFaps-value-container",
   templateUrl: "./value-container.component.html",
-  styleUrls: ["./value-container.component.scss"],
+  styleUrls: ["./value-container.component.scss"]
 })
-export class ValueContainerComponent implements OnInit, AfterViewInit {
+export class ValueContainerComponent implements OnInit {
   private _value: Value;
 
-  @ViewChild(ValueDirective) valueHost: ValueDirective;
+  @ViewChild(ValueDirective, { static: true }) valueHost: ValueDirective;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    console.log("init");
+  ngOnInit(): void {
     this.loadComponent();
   }
 
@@ -44,10 +42,20 @@ export class ValueContainerComponent implements OnInit, AfterViewInit {
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<ValueComponent>componentRef.instance).setValue(this._value);
+    (<ValueComponent>componentRef.instance).value = this._value;
   }
 
   getType(_value: Value): any {
-    return ReadOnlyValueComponent;
+    let type;
+    switch (_value.type) {
+      case ValueType.INPUT:
+        type = InputValueComponent;
+        break;
+
+      default:
+        type = ReadOnlyValueComponent;
+        break;
+    }
+    return type;
   }
 }
