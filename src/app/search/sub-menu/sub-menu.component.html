@@ -7,7 +7,7 @@
       <eFaps-sub-menu #menu [items]="child.children"></eFaps-sub-menu>
     </span>
     <span *ngIf="!child.children || child.children.length === 0">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="onItemClick(child)">
         <span>{{child.label}}</span>
       </button>
     </span>

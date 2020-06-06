@@ -45,4 +45,8 @@ export class SearchDialogComponent implements OnInit {
   hide() {
     this.dialogRef.close(true)
   }
+
+  setCurrent(searchItem: Search) {
+    this.currentSearch = searchItem
+  }
 }

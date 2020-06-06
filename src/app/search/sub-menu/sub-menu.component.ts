@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from "@angular/core";
 import { Search } from "src/app/models";
 
 @Component({
@@ -9,8 +16,13 @@ import { Search } from "src/app/models";
 export class SubMenuComponent implements OnInit {
   @Input() items: Search[];
   @ViewChild("childMenu", { static: true }) public childMenu;
+  @Output() selected = new EventEmitter<Search>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onItemClick(searchItem: Search) {
+    this.selected.emit(searchItem);
+  }
 }

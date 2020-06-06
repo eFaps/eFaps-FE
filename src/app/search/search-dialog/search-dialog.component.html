@@ -13,9 +13,9 @@
         <button mat-menu-item [matMenuTriggerFor]="menu.childMenu">
           <span>{{item.label}}</span>
         </button>
-        <eFaps-sub-menu #menu [items]="item.children"></eFaps-sub-menu>
+        <eFaps-sub-menu #menu [items]="item.children" (selected)='setCurrent($event)'></eFaps-sub-menu>
       </ng-container>
-      <button *ngIf="item.children.length < 1" mat-menu-item>
+      <button *ngIf="item.children.length < 1" mat-menu-item (click)="setCurrent(item)">
         <span>{{item.label}}</span>
       </button>
     </ng-container>
@@ -26,4 +26,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary">Search</button>
 </div>
