@@ -23,7 +23,10 @@ export class SearchService {
     } else {
       dialogRef = this.dialog.open(SearchDialogComponent, {
         hasBackdrop: false,
-        id: "SearchDialog"
+        id: "SearchDialog",
+        data: {
+          currentSearch: this.currentSearch
+        }
       });
     }
     this.getSearch(item).subscribe({

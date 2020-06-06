@@ -1,6 +1,22 @@
 <div mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="header">
-  <h2>Delete all elements?</h2>
+  <button mat-icon-button [matMenuTriggerFor]="mainMenu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <h2>{{currentSearch?.label}}</h2>
   <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+  <mat-menu #mainMenu="matMenu">
+    <ng-container *ngFor="let item of searchItems; index as idx">
+      <ng-container *ngIf="item.children.length > 0">
+        <button mat-menu-item [matMenuTriggerFor]="menu.childMenu">
+          <span>{{item.label}}</span>
+        </button>
+        <eFaps-sub-menu #menu [items]="item.children"></eFaps-sub-menu>
+      </ng-container>
+      <button *ngIf="item.children.length < 1" mat-menu-item>
+        <span>{{item.label}}</span>
+      </button>
+    </ng-container>
+  </mat-menu>
 </div>
 <div mat-dialog-content>This will delete all elements that are currently on this page and cannot be undone.
 </div>
