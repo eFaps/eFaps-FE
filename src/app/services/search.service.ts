@@ -12,6 +12,8 @@ export class SearchService {
   private searchSource = new BehaviorSubject<Search>(null);
   currentSearch = this.searchSource.asObservable();
 
+  private restoreableSource = new BehaviorSubject<any>(null);
+  restoreable = this.restoreableSource.asObservable();
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   search(item: NavItem): any {
@@ -28,6 +30,15 @@ export class SearchService {
           currentSearch: this.currentSearch
         }
       });
+      dialogRef.afterClosed().subscribe({
+        next: restorable => {
+          if (restorable) {
+            this.restoreableSource.next({});
+          } else {
+            this.restoreableSource.next(null);
+          }
+        }
+      });
     }
     this.getSearch(item).subscribe({
       next: search => this.searchSource.next(search)
@@ -37,5 +48,25 @@ export class SearchService {
   public getSearch(item: NavItem): Observable<Search> {
     const requestUrl = `../rest/ui/search/${item.id}`;
     return this.http.get<Search>(requestUrl);
+  }
+
+  public restore() {
+    this.restoreableSource.next(null);
+    var dialogRef = this.dialog.open(SearchDialogComponent, {
+      hasBackdrop: false,
+      id: "SearchDialog",
+      data: {
+        currentSearch: this.currentSearch
+      }
+    });
+    dialogRef.afterClosed().subscribe({
+      next: restorable => {
+        if (restorable) {
+          this.restoreableSource.next({});
+        } else {
+          this.restoreableSource.next(null);
+        }
+      }
+    });
   }
 }

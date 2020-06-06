@@ -1,8 +1,11 @@
 <div mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="header">
-  <button mat-icon-button [matMenuTriggerFor]="mainMenu" aria-label="Example icon-button with a menu">
+  <button mat-icon-button [matMenuTriggerFor]="mainMenu" class="menu-button">
     <mat-icon>more_vert</mat-icon>
   </button>
   <h2>{{currentSearch?.label}}</h2>
+  <button mat-icon-button class="hide-button" (click)="hide()">
+    <mat-icon>unfold_less</mat-icon>
+  </button>
   <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
   <mat-menu #mainMenu="matMenu">
     <ng-container *ngFor="let item of searchItems; index as idx">

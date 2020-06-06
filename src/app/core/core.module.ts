@@ -10,6 +10,7 @@ import { LayoutComponent } from "./layout/layout.component";
 import { MenuItemComponent } from "./menu-item/menu-item.component";
 import { SearchComponent } from "./search/search.component";
 import { TopNavComponent } from "./top-nav/top-nav.component";
+import { SearchRestoreComponent } from './search-restore/search-restore.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TopNavComponent } from "./top-nav/top-nav.component";
     TopNavComponent,
     MenuItemComponent,
     SearchComponent,
+    SearchRestoreComponent,
   ],
   imports: [
     CommonModule,

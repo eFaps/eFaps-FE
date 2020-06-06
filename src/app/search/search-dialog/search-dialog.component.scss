@@ -1,7 +1,7 @@
 .header {
   position: relative;
 
-  button {
+  button.menu-button {
     position: absolute;
     top: -5px;
     left: -5px;
@@ -9,6 +9,12 @@
 
   h2 {
     text-align: center;
+  }
+
+  button.hide-button {
+    position: absolute;
+    top: -17px;
+    right: 7px;
   }
 
   .handle {
