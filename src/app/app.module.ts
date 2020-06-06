@@ -9,6 +9,7 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { registerLocaleData } from "@angular/common";
 import localeFr from "@angular/common/locales/es";
+import { SearchModule } from './search/search.module';
 registerLocaleData(localeFr, "es");
 @NgModule({
   declarations: [AppComponent],
@@ -17,11 +18,13 @@ registerLocaleData(localeFr, "es");
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    SearchModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production,
-    }),
+      enabled: environment.production
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  entryComponents: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

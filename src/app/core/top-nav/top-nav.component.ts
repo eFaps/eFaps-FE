@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ActionType, NavItem, User } from "src/app/models";
-import { NavService, UserService } from "src/app/services";
+import { NavService, SearchService, UserService } from "src/app/services";
 
 @Component({
   selector: "eFaps-top-nav",
@@ -15,7 +15,8 @@ export class TopNavComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private navService: NavService,
-    private userService: UserService
+    private userService: UserService,
+    private searchService: SearchService,
   ) {}
 
   ngOnInit(): void {
@@ -77,6 +78,9 @@ export class TopNavComponent implements OnInit {
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
       case ActionType.FORM:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
+        break;
+      case ActionType.SEARCH:
+        this.searchService.search(item)
         break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
