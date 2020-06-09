@@ -1,5 +1,6 @@
 export interface Value {
   type: ValueType;
+  name: string;
   label: string;
   value: any;
 }

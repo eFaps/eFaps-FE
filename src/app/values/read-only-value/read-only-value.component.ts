@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ValueComponent, Value } from "../../models";
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: "eFaps-read-only-value",
@@ -7,6 +8,8 @@ import { ValueComponent, Value } from "../../models";
   styleUrls: ["./read-only-value.component.scss"],
 })
 export class ReadOnlyValueComponent implements OnInit, ValueComponent {
+  formGroup: FormGroup;
+
   _value: Value;
   constructor() {}
 

@@ -22,9 +22,9 @@
   </mat-menu>
 </div>
 <div mat-dialog-content>
-  <eFaps-form-section [section]="currentSearch?.formSection"></eFaps-form-section>
+  <eFaps-form-section [section]="currentSearch?.formSection" [formGroup]="formGroup"></eFaps-form-section>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
-  <button mat-button color="primary">Search</button>
+  <button mat-button color="primary" (click)="query()">Search</button>
 </div>

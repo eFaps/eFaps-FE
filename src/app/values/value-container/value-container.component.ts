@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ComponentFactoryResolver,
   Input,
@@ -11,6 +10,7 @@ import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { InputValueComponent } from "../input-value/input-value.component";
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: "eFaps-value-container",
@@ -20,7 +20,9 @@ import { InputValueComponent } from "../input-value/input-value.component";
 export class ValueContainerComponent implements OnInit {
   private _value: Value;
 
+
   @ViewChild(ValueDirective, { static: true }) valueHost: ValueDirective;
+    _formGroup: FormGroup;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class ValueContainerComponent implements OnInit {
   @Input()
   set value(value: Value) {
     this._value = value;
+  }
+
+  @Input()
+  set form(formGroup: FormGroup) {
+    this._formGroup = formGroup
   }
 
   private loadComponent() {
@@ -42,6 +49,8 @@ export class ValueContainerComponent implements OnInit {
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
+
+    (<ValueComponent>componentRef.instance).formGroup = this._formGroup;
     (<ValueComponent>componentRef.instance).value = this._value;
   }
 

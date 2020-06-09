@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
 
 import { ValueDirective } from "../services/value.directive";
@@ -13,8 +14,9 @@ import { ValueContainerComponent } from "./value-container/value-container.compo
     ReadOnlyValueComponent,
     ValueDirective,
     InputValueComponent
+
   ],
-  imports: [CommonModule, MatInputModule],
+  imports: [CommonModule, MatInputModule, ReactiveFormsModule],
   exports: [ValueContainerComponent]
 })
 export class ValuesModule {}

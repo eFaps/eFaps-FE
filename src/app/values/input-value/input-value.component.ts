@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Value, ValueComponent } from 'src/app/models';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'eFaps-input-value',
@@ -7,6 +8,7 @@ import { Value, ValueComponent } from 'src/app/models';
   styleUrls: ['./input-value.component.scss']
 })
 export class InputValueComponent implements OnInit, ValueComponent {
+  @Input() formGroup: FormGroup;
   _value: Value;
   constructor() {}
 
@@ -15,6 +17,7 @@ export class InputValueComponent implements OnInit, ValueComponent {
   @Input()
   set value(value: Value) {
     this._value = value;
+    this.formGroup.addControl(value.name, new FormControl())
   }
 
   get value() {

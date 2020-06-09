@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { ValuesModule } from '../values/values.module';
 import { FormSectionComponent } from './form-section/form-section.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormSectionComponent],
   imports: [
     CommonModule,
     ValuesModule,
+    ReactiveFormsModule,
   ],
   exports: [FormSectionComponent]
 })
