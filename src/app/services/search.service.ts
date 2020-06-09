@@ -27,7 +27,8 @@ export class SearchService {
         hasBackdrop: false,
         id: "SearchDialog",
         data: {
-          currentSearch: this.currentSearch
+          currentSearch: this.currentSearch,
+          service: this
         }
       });
       dialogRef.afterClosed().subscribe({
@@ -56,7 +57,8 @@ export class SearchService {
       hasBackdrop: false,
       id: "SearchDialog",
       data: {
-        currentSearch: this.currentSearch
+        currentSearch: this.currentSearch,
+        service: this
       }
     });
     dialogRef.afterClosed().subscribe({
@@ -68,5 +70,10 @@ export class SearchService {
         }
       }
     });
+  }
+
+  public query(id: string, data: any): Observable<Search>  {
+    const requestUrl = `../rest/ui/search/${id}/query`;
+    return this.http.get<Search>(requestUrl, { params: data });
   }
 }
