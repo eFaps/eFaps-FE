@@ -1,0 +1,17 @@
+<p-table [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn>
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-value let-columns="columns">
+       <tr>
+           <td *ngFor="let col of columns">
+                   {{value[col.field]}}
+           </td>
+       </tr>
+   </ng-template>
+</p-table>

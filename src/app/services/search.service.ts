@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { NavItem, Search } from "../models";
+import { NavItem, Search, TableSection } from "../models";
 import { SearchDialogComponent } from "../search/search-dialog/search-dialog.component";
 import { Observable, BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -72,8 +72,8 @@ export class SearchService {
     });
   }
 
-  public query(id: string, data: any): Observable<Search>  {
+  public query(id: string, data: any): Observable<TableSection>  {
     const requestUrl = `../rest/ui/search/${id}/query`;
-    return this.http.get<Search>(requestUrl, { params: data });
+    return this.http.get<TableSection>(requestUrl, { params: data });
   }
 }

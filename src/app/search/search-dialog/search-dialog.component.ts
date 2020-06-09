@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { Search } from "src/app/models";
+import { Search, TableSection } from "src/app/models";
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: "eFaps-search-dialog",
@@ -13,7 +12,8 @@ export class SearchDialogComponent implements OnInit {
   searchItems: Search[] = [];
   currentSearch: Search;
   formGroup: FormGroup;
-
+  tableSection: TableSection;
+  showResult = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SearchDialogComponent>,
@@ -59,8 +59,9 @@ export class SearchDialogComponent implements OnInit {
 
   query() {
     this.data.service.query(this.currentSearch.id, this.formGroup.value).subscribe({
-      next: resp => {
-        console.log(resp)
+      next: tableSection => {
+        this.tableSection = tableSection
+        this.showResult = true
       }
     })
   }
