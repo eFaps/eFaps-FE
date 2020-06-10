@@ -1,3 +1,5 @@
+@import "variables";
+
 .container {
   height: 100%;
 
@@ -28,6 +30,7 @@
         &:hover {
           cursor: col-resize;
           background-color: #3f51b5;
+          background-color: $primary;
         }
 
         &.closed {
@@ -64,7 +67,8 @@
 
   &:hover {
     div {
-      background-color: blue;
+      background-color: $primary;
+      color: white;
       display: block;
     }
   }
@@ -103,7 +107,8 @@
 
   &:hover {
     div {
-      background-color: blue;
+      background-color: $primary;
+      color: white;
     }
   }
 
