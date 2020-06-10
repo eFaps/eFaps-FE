@@ -12,14 +12,12 @@ import { ContentRoutingModule } from "./content-routing.module";
 import { HeadingComponent } from "./heading/heading.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
-import { TableComponent } from "./table/table.component";
 import { SectionsModule } from '../sections/sections.module';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     OutlineComponent,
-    TableComponent,
     HeadingComponent
   ],
   imports: [
