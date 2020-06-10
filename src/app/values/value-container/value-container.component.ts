@@ -5,12 +5,13 @@ import {
   OnInit,
   ViewChild
 } from "@angular/core";
+import { FormGroup } from '@angular/forms';
 
 import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
-import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { InputValueComponent } from "../input-value/input-value.component";
-import { FormGroup } from '@angular/forms';
+import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
+import { SnippletValueComponent } from '../snipplet-value/snipplet-value.component';
 
 @Component({
   selector: "eFaps-value-container",
@@ -60,7 +61,9 @@ export class ValueContainerComponent implements OnInit {
       case ValueType.INPUT:
         type = InputValueComponent;
         break;
-
+      case ValueType.SNIPPLET:
+        type = SnippletValueComponent;
+        break;
       default:
         type = ReadOnlyValueComponent;
         break;

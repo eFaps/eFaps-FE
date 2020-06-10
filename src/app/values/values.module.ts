@@ -7,13 +7,15 @@ import { ValueDirective } from "../services/value.directive";
 import { InputValueComponent } from "./input-value/input-value.component";
 import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.component";
 import { ValueContainerComponent } from "./value-container/value-container.component";
+import { SnippletValueComponent } from './snipplet-value/snipplet-value.component';
 
 @NgModule({
   declarations: [
     ValueContainerComponent,
     ReadOnlyValueComponent,
     ValueDirective,
-    InputValueComponent
+    InputValueComponent,
+    SnippletValueComponent
 
   ],
   imports: [CommonModule, MatInputModule, ReactiveFormsModule],
