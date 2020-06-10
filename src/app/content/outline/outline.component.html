@@ -2,7 +2,7 @@
   <h1>{{header}}</h1>
 </div>
 <div *ngFor="let section of sections">
-  <eFaps-form *ngIf="'FORM' == section.type" [section]="section"></eFaps-form>
+  <eFaps-form-section *ngIf="'FORM' == section.type" [section]="section"></eFaps-form-section>
   <eFaps-table *ngIf="'TABLE' == section.type" [section]="section"></eFaps-table>
   <eFaps-heading *ngIf="'HEADING' == section.type" [section]="section"></eFaps-heading>
 </div>

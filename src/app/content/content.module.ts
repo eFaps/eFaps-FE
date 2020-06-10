@@ -9,16 +9,15 @@ import { TableModule } from "primeng/table";
 
 import { ValuesModule } from "../values/values.module";
 import { ContentRoutingModule } from "./content-routing.module";
-import { FormComponent } from "./form/form.component";
 import { HeadingComponent } from "./heading/heading.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
 import { TableComponent } from "./table/table.component";
+import { SectionsModule } from '../sections/sections.module';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    FormComponent,
     OutlineComponent,
     TableComponent,
     HeadingComponent
@@ -32,7 +31,8 @@ import { TableComponent } from "./table/table.component";
     MatSidenavModule,
     MatIconModule,
     DragDropModule,
-    MatListModule
+    MatListModule,
+    SectionsModule,
   ]
 })
 export class ContentModule {}
