@@ -1,4 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewChecked,
+  ChangeDetectorRef
+} from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ActionType, NavItem, User } from "src/app/models";
 import { NavService, SearchService, UserService } from "src/app/services";
@@ -6,34 +13,36 @@ import { NavService, SearchService, UserService } from "src/app/services";
 @Component({
   selector: "eFaps-top-nav",
   templateUrl: "./top-nav.component.html",
-  styleUrls: ["./top-nav.component.scss"],
+  styleUrls: ["./top-nav.component.scss"]
 })
-export class TopNavComponent implements OnInit {
+export class TopNavComponent implements OnInit, AfterViewChecked {
+  @ViewChild("menuWrapper") menuWrapper: ElementRef;
   navItems: NavItem[] = [];
   user: User;
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
     private route: ActivatedRoute,
     private navService: NavService,
     private userService: UserService,
-    private searchService: SearchService,
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
     this.navService.getNav().subscribe({
-      next: (menu) => {
+      next: menu => {
         this.navItems = menu;
-      },
+      }
     });
     this.navService.currentNav.subscribe({
-      next: (navItem) => {
+      next: navItem => {
         this.triggerAction(navItem);
-      },
+      }
     });
     this.userService.currentUser.subscribe({
-      next: (user) => {
+      next: user => {
         this.user = user;
-      },
+      }
     });
   }
 
@@ -42,8 +51,8 @@ export class TopNavComponent implements OnInit {
       id: "",
       label: "",
       action: {
-        type: ActionType.DASHBOARD,
-      },
+        type: ActionType.DASHBOARD
+      }
     });
   }
 
@@ -67,9 +76,9 @@ export class TopNavComponent implements OnInit {
                 skipLocationChange: true,
                 replaceUrl: false,
                 queryParams: {
-                  id: item.id,
+                  id: item.id
                 },
-                state: { id: item.id },
+                state: { id: item.id }
               }
             );
           });
@@ -80,11 +89,39 @@ export class TopNavComponent implements OnInit {
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
         break;
       case ActionType.SEARCH:
-        this.searchService.search(item)
+        this.searchService.search(item);
         break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
         break;
+    }
+  }
+
+  ngAfterViewChecked() {
+    if (
+      this.menuWrapper.nativeElement.scrollHeight >
+      this.menuWrapper.nativeElement.clientHeight
+    ) {
+
+      setTimeout(() => {
+        const lastElement = this.navItems[this.navItems.length - 1];
+        if (lastElement.id == "MORE") {
+          const more = this.navItems.pop();
+          const item = this.navItems.pop();
+          more.children = [item].concat(more.children);
+          this.navItems.push(more);
+        } else {
+          const subMenus = this.navItems.splice(-2);
+          this.navItems.push({
+            id: "MORE",
+            label: "",
+            icon: 'more_vert',
+            children: subMenus
+          });
+        }
+        console.log(this.navItems);
+        this.changeDetectorRef.detectChanges();
+      }, 200);
     }
   }
 }

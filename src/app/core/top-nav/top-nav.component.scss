@@ -8,6 +8,11 @@
     display: flex;
   }
 
+  .menu-wrapper {
+    height: 40px;
+    overflow: hidden;
+  }
+
   eFaps-content-wrapper {
     flex-grow: 1;
     margin-top: 5px;

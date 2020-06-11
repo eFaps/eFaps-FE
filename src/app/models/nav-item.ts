@@ -3,6 +3,7 @@ export interface NavItem {
   label: string;
   children?: NavItem[];
   action?: Action;
+  icon?: String;
 }
 
 export interface Action {
