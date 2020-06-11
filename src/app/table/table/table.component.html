@@ -3,8 +3,15 @@
            [lazy]="isLazy" [virtualScroll]="virtualScroll" (onLazyLoad)="loadDataOnScroll($event)" [totalRecords]="totalRecords" [rows]="100"
            [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true">
     <ng-template pTemplate="caption">
-      <div class="heading">
-        {{table?.header}}
+      <div class="caption">
+        <span class="heading">
+          {{table?.header}}
+        </span>
+        <span class="search">
+          <mat-icon>search</mat-icon>
+          <input type="text" pInputText size="20" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                 style="width:auto">
+        </span>
       </div>
     </ng-template>
     <ng-template pTemplate="colgroup" let-columns>
