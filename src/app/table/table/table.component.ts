@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Column, Table } from "src/app/models";
+import { Column, Table, NavItem } from "src/app/models";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit {
+  menu: NavItem[];
   columns: Column[] = [];
   values = [];
   multiSortMeta = [];
@@ -18,6 +19,7 @@ export class TableComponent implements OnInit {
   loading: boolean;
   virtualScroll = true;
   isLazy = true;
+
   constructor(private router: Router, private route: ActivatedRoute) {
     this.route.data.subscribe({
       next: (value) => {
@@ -28,6 +30,7 @@ export class TableComponent implements OnInit {
 
   set table(table: Table) {
     this._table = table;
+    this.menu = table.menu;
     this.columns = table.columns;
     this.totalRecords = table.values.length;
     if (this.totalRecords > 500) {
