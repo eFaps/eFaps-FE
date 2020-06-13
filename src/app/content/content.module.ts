@@ -7,12 +7,13 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatTabsModule } from "@angular/material/tabs";
 import { TableModule } from "primeng/table";
 
+import { MenuModule } from '../menu/menu.module';
+import { SectionsModule } from '../sections/sections.module';
 import { ValuesModule } from "../values/values.module";
 import { ContentRoutingModule } from "./content-routing.module";
 import { HeadingComponent } from "./heading/heading.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { OutlineComponent } from "./outline/outline.component";
-import { SectionsModule } from '../sections/sections.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SectionsModule } from '../sections/sections.module';
     DragDropModule,
     MatListModule,
     SectionsModule,
+    MenuModule,
   ]
 })
 export class ContentModule {}

@@ -12,6 +12,7 @@ export class OutlineComponent implements OnInit {
   @Input() oid: string;
   sections: Section[] = [];
   header: string;
+  menu: NavItem[];
 
   constructor() {}
 
@@ -25,5 +26,6 @@ export class OutlineComponent implements OnInit {
     this._outline = outline;
     this.sections = outline.sections;
     this.header = outline.header;
+    this.menu = outline.menu
   }
 }
