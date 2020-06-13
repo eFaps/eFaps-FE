@@ -28,4 +28,8 @@ export class OutlineComponent implements OnInit {
     this.header = outline.header;
     this.menu = outline.menu
   }
+
+  onAction(item: NavItem) {
+    console.log(item)
+  }
 }

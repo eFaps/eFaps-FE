@@ -88,4 +88,9 @@ export class TableComponent implements OnInit {
         );
       });
   }
+
+  onAction(item: NavItem) {
+    console.log(item)
+  }
+
 }

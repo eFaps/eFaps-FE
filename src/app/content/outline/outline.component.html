@@ -1,5 +1,5 @@
 <div class="heading">
-  <eFaps-menu [navItems]="menu"></eFaps-menu>
+  <eFaps-menu [navItems]="menu" (action)="onAction($event)"></eFaps-menu>
   <h1>{{header}}</h1>
 </div>
 <div *ngFor="let section of sections">

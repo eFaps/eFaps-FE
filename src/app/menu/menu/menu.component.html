@@ -1,6 +1,6 @@
 <span *ngFor="let item of navItems">
   <span *ngIf="item.children && item.children.length > 0">
-    <eFaps-menu-item #menu [items]="item.children"></eFaps-menu-item>
+    <eFaps-menu-item #menu [items]="item.children" (action)="triggerAction($event)"></eFaps-menu-item>
     <button mat-button color="primary" [matMenuTriggerFor]="menu.childMenu">
       <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
       {{item.label}}
@@ -8,7 +8,7 @@
     </button>
   </span>
   <span *ngIf="!item.children || item.children.length === 0">
-    <button mat-button color="primary">
+    <button mat-button color="primary" (click)="triggerAction(item)">
       {{item.label}}
     </button>
   </span>

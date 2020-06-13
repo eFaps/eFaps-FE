@@ -4,7 +4,7 @@
            [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true">
     <ng-template pTemplate="caption">
       <div class="caption">
-        <eFaps-menu [navItems]="menu"></eFaps-menu>
+        <eFaps-menu [navItems]="menu" (action)="onAction($event)"></eFaps-menu>
         <span class="heading">
           {{table?.header}}
         </span>
