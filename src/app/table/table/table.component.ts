@@ -1,12 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { Column, Table, NavItem } from "src/app/models";
+import { Column, Table, NavItem, ActionType } from "src/app/models";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "src/app/modal/modal/modal.component";
 
 @Component({
   selector: "eFaps-table",
   templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"],
+  styleUrls: ["./table.component.scss"]
 })
 export class TableComponent implements OnInit {
   menu: NavItem[];
@@ -20,11 +22,15 @@ export class TableComponent implements OnInit {
   virtualScroll = true;
   isLazy = true;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public dialog: MatDialog
+  ) {
     this.route.data.subscribe({
-      next: (value) => {
+      next: value => {
         this.table = value.table;
-      },
+      }
     });
   }
 
@@ -81,16 +87,25 @@ export class TableComponent implements OnInit {
             skipLocationChange: true,
             replaceUrl: false,
             queryParams: {
-              id: ref,
+              id: ref
             },
-            state: { id: ref },
+            state: { id: ref }
           }
         );
       });
   }
 
   onAction(item: NavItem) {
-    console.log(item)
+    if (item.action) {
+      switch (item.action.type) {
+        case ActionType.MODAL:
+          this.dialog.open(ModalComponent, {
+            data: {
+              navItem: item
+            }
+          });
+          break;
+      }
+    }
   }
-
 }

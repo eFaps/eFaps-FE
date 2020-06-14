@@ -1,0 +1,4 @@
+<div *ngFor="let section of sections">
+  <eFaps-form-section *ngIf="'FORM' == section.type" [section]="section"></eFaps-form-section>
+  <eFaps-table-section *ngIf="'TABLE' == section.type" [section]="section"></eFaps-table-section>
+</div>

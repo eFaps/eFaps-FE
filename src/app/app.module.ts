@@ -1,15 +1,17 @@
+import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
+import localeFr from "@angular/common/locales/es";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ServiceWorkerModule } from "@angular/service-worker";
 
+import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ServiceWorkerModule } from "@angular/service-worker";
-import { environment } from "../environments/environment";
-import { registerLocaleData } from "@angular/common";
-import localeFr from "@angular/common/locales/es";
-import { SearchModule } from './search/search.module';
+import { ModalModule } from "./modal/modal.module";
+import { SearchModule } from "./search/search.module";
+
 registerLocaleData(localeFr, "es");
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,7 @@ registerLocaleData(localeFr, "es");
     HttpClientModule,
     AppRoutingModule,
     SearchModule,
+    ModalModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })

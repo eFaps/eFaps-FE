@@ -14,5 +14,6 @@ export enum ActionType {
   DASHBOARD = "DASHBOARD",
   GRID = "GRID",
   FORM = "FORM",
-  SEARCH = "SEARCH"
+  SEARCH = "SEARCH",
+  MODAL = "MODAL"
 }
