@@ -8,6 +8,7 @@ export interface NavItem {
 
 export interface Action {
   type: ActionType;
+  label?: string;
 }
 
 export enum ActionType {

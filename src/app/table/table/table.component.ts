@@ -102,7 +102,8 @@ export class TableComponent implements OnInit {
           this.dialog.open(ModalComponent, {
             data: {
               navItem: item
-            }
+            },
+            disableClose: true
           });
           break;
       }
