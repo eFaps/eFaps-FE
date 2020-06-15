@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 @Component({
   selector: "eFaps-form-section",
   templateUrl: "./form-section.component.html",
-  styleUrls: ["./form-section.component.scss"]
+  styleUrls: ["./form-section.component.scss"],
 })
 export class FormSectionComponent implements OnInit {
   _section: FormSection;
@@ -43,7 +43,7 @@ export class FormSectionComponent implements OnInit {
 
   getArrayStyle(valAr: Value[], index: number) {
     let style = {
-      width: "calc(100% / " + valAr.length + ")"
+      width: "calc(100% / " + valAr.length + ")",
     };
     return style;
   }

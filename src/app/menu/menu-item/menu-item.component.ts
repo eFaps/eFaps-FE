@@ -4,14 +4,14 @@ import {
   Input,
   OnInit,
   Output,
-  ViewChild
+  ViewChild,
 } from "@angular/core";
 import { NavItem } from "src/app/models";
 
 @Component({
   selector: "eFaps-menu-item",
   templateUrl: "./menu-item.component.html",
-  styleUrls: ["./menu-item.component.scss"]
+  styleUrls: ["./menu-item.component.scss"],
 })
 export class MenuItemComponent implements OnInit {
   @Input() items: NavItem[];

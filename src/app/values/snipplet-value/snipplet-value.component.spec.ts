@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SnippletValueComponent } from './snipplet-value.component';
+import { SnippletValueComponent } from "./snipplet-value.component";
 
-describe('SnippletValueComponent', () => {
+describe("SnippletValueComponent", () => {
   let component: SnippletValueComponent;
   let fixture: ComponentFixture<SnippletValueComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnippletValueComponent ]
-    })
-    .compileComponents();
+      declarations: [SnippletValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SnippletValueComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

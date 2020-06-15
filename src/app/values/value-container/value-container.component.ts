@@ -3,27 +3,26 @@ import {
   ComponentFactoryResolver,
   Input,
   OnInit,
-  ViewChild
+  ViewChild,
 } from "@angular/core";
-import { FormGroup } from '@angular/forms';
+import { FormGroup } from "@angular/forms";
 
 import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
 import { InputValueComponent } from "../input-value/input-value.component";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
-import { SnippletValueComponent } from '../snipplet-value/snipplet-value.component';
+import { SnippletValueComponent } from "../snipplet-value/snipplet-value.component";
 
 @Component({
   selector: "eFaps-value-container",
   templateUrl: "./value-container.component.html",
-  styleUrls: ["./value-container.component.scss"]
+  styleUrls: ["./value-container.component.scss"],
 })
 export class ValueContainerComponent implements OnInit {
   private _value: Value;
 
-
   @ViewChild(ValueDirective, { static: true }) valueHost: ValueDirective;
-    _formGroup: FormGroup;
+  _formGroup: FormGroup;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
   ngOnInit(): void {
@@ -37,7 +36,7 @@ export class ValueContainerComponent implements OnInit {
 
   @Input()
   set form(formGroup: FormGroup) {
-    this._formGroup = formGroup
+    this._formGroup = formGroup;
   }
 
   private loadComponent() {

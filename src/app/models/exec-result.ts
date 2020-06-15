@@ -1,3 +1,3 @@
 export interface ExecResult {
-  reload: boolean
+  reload: boolean;
 }

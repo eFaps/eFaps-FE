@@ -1,7 +1,7 @@
 import { Value } from "./value";
-import { FormGroup } from '@angular/forms';
+import { FormGroup } from "@angular/forms";
 
 export interface ValueComponent {
-  value: Value
-  formGroup: FormGroup
+  value: Value;
+  formGroup: FormGroup;
 }

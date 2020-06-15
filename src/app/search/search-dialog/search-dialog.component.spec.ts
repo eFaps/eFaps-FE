@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchDialogComponent } from './search-dialog.component';
+import { SearchDialogComponent } from "./search-dialog.component";
 
-describe('SearchDialogComponent', () => {
+describe("SearchDialogComponent", () => {
   let component: SearchDialogComponent;
   let fixture: ComponentFixture<SearchDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchDialogComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SearchDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

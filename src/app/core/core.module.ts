@@ -10,7 +10,7 @@ import { LayoutComponent } from "./layout/layout.component";
 import { MenuItemComponent } from "./menu-item/menu-item.component";
 import { SearchComponent } from "./search/search.component";
 import { TopNavComponent } from "./top-nav/top-nav.component";
-import { SearchRestoreComponent } from './search-restore/search-restore.component';
+import { SearchRestoreComponent } from "./search-restore/search-restore.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SearchRestoreComponent } from './search-restore/search-restore.componen
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
 })
 export class CoreModule {}

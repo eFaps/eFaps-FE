@@ -8,7 +8,7 @@ import { ModalComponent } from "src/app/modal/modal/modal.component";
 @Component({
   selector: "eFaps-table",
   templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"]
+  styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit {
   menu: NavItem[];
@@ -29,14 +29,14 @@ export class TableComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.route.data.subscribe({
-      next: value => {
+      next: (value) => {
         this.table = value.table;
-      }
+      },
     });
     route.queryParams.subscribe({
-      next: params => {
+      next: (params) => {
         this.id = params["id"];
-      }
+      },
     });
   }
 
@@ -94,9 +94,9 @@ export class TableComponent implements OnInit {
             skipLocationChange: true,
             replaceUrl: false,
             queryParams: {
-              id: ref
+              id: ref,
             },
-            state: { id: ref }
+            state: { id: ref },
           }
         );
       });
@@ -108,12 +108,12 @@ export class TableComponent implements OnInit {
         case ActionType.MODAL:
           const dialogRef = this.dialog.open(ModalComponent, {
             data: {
-              navItem: item
+              navItem: item,
             },
-            disableClose: true
+            disableClose: true,
           });
           dialogRef.afterClosed().subscribe({
-            next: result => {
+            next: (result) => {
               this.router
                 .navigate(["ui", { outlets: { layoutoutlet: null } }])
                 .then(() => {
@@ -123,13 +123,13 @@ export class TableComponent implements OnInit {
                       skipLocationChange: true,
                       replaceUrl: false,
                       queryParams: {
-                        id: this.id
+                        id: this.id,
                       },
-                      state: { id: this.id }
+                      state: { id: this.id },
                     }
                   );
                 });
-            }
+            },
           });
           break;
       }

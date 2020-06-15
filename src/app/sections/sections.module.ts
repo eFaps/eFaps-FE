@@ -10,6 +10,6 @@ import { TableSectionComponent } from "./table-section/table-section.component";
 @NgModule({
   declarations: [FormSectionComponent, TableSectionComponent],
   imports: [CommonModule, ValuesModule, ReactiveFormsModule, TableModule],
-  exports: [FormSectionComponent, TableSectionComponent]
+  exports: [FormSectionComponent, TableSectionComponent],
 })
 export class SectionsModule {}

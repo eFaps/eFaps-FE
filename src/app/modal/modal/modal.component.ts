@@ -8,7 +8,7 @@ import { ExecService } from "src/app/services/exec.service";
 @Component({
   selector: "eFaps-modal",
   templateUrl: "./modal.component.html",
-  styleUrls: ["./modal.component.scss"]
+  styleUrls: ["./modal.component.scss"],
 })
 export class ModalComponent implements OnInit {
   formGroup: FormGroup;
@@ -31,12 +31,12 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentService.getOutline(this.id, this.navItem.id).subscribe({
-      next: outline => {
+      next: (outline) => {
         console.log(outline);
         this.sections = outline.sections;
         this.action = outline.action;
         this.header = outline.header;
-      }
+      },
     });
   }
 
@@ -45,7 +45,7 @@ export class ModalComponent implements OnInit {
     this.execService.execute(this.navItem.id, this.formGroup.value).subscribe({
       next: () => {
         this.dialogRef.close({ reload: true });
-      }
+      },
     });
   }
 }

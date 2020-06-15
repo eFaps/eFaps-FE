@@ -6,9 +6,9 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 
-import { SectionsModule } from '../sections/sections.module';
+import { SectionsModule } from "../sections/sections.module";
 import { SearchDialogComponent } from "./search-dialog/search-dialog.component";
-import { SubMenuComponent } from './sub-menu/sub-menu.component';
+import { SubMenuComponent } from "./sub-menu/sub-menu.component";
 
 @NgModule({
   declarations: [SearchDialogComponent, SubMenuComponent],
@@ -21,6 +21,6 @@ import { SubMenuComponent } from './sub-menu/sub-menu.component';
     MatMenuModule,
     SectionsModule,
   ],
-  entryComponents: [SearchDialogComponent]
+  entryComponents: [SearchDialogComponent],
 })
 export class SearchModule {}

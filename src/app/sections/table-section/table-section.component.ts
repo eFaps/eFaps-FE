@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TableSection } from 'src/app/models';
+import { Component, OnInit, Input } from "@angular/core";
+import { TableSection } from "src/app/models";
 
 @Component({
-  selector: 'eFaps-table-section',
-  templateUrl: './table-section.component.html',
-  styleUrls: ['./table-section.component.scss']
+  selector: "eFaps-table-section",
+  templateUrl: "./table-section.component.html",
+  styleUrls: ["./table-section.component.scss"],
 })
-export class TableSectionComponent  implements OnInit {
+export class TableSectionComponent implements OnInit {
   _section: TableSection;
   values = [];
   columns = [];

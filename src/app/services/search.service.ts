@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SearchService {
   private searchSource = new BehaviorSubject<Search>(null);
@@ -17,7 +17,7 @@ export class SearchService {
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   search(item: NavItem): any {
-    var dialogRef = this.dialog.openDialogs.find(dialogRef => {
+    var dialogRef = this.dialog.openDialogs.find((dialogRef) => {
       return dialogRef.id == "SearchDialog";
     });
 
@@ -28,21 +28,21 @@ export class SearchService {
         id: "SearchDialog",
         data: {
           currentSearch: this.currentSearch,
-          service: this
-        }
+          service: this,
+        },
       });
       dialogRef.afterClosed().subscribe({
-        next: restorable => {
+        next: (restorable) => {
           if (restorable) {
             this.restoreableSource.next({});
           } else {
             this.restoreableSource.next(null);
           }
-        }
+        },
       });
     }
     this.getSearch(item).subscribe({
-      next: search => this.searchSource.next(search)
+      next: (search) => this.searchSource.next(search),
     });
   }
 
@@ -58,21 +58,21 @@ export class SearchService {
       id: "SearchDialog",
       data: {
         currentSearch: this.currentSearch,
-        service: this
-      }
+        service: this,
+      },
     });
     dialogRef.afterClosed().subscribe({
-      next: restorable => {
+      next: (restorable) => {
         if (restorable) {
           this.restoreableSource.next({});
         } else {
           this.restoreableSource.next(null);
         }
-      }
+      },
     });
   }
 
-  public query(id: string, data: any): Observable<TableSection>  {
+  public query(id: string, data: any): Observable<TableSection> {
     const requestUrl = `../rest/ui/search/${id}/query`;
     return this.http.get<TableSection>(requestUrl, { params: data });
   }

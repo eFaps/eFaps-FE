@@ -1,4 +1,4 @@
-import { FormSection } from './section';
+import { FormSection } from "./section";
 
 export interface Search {
   id: string;

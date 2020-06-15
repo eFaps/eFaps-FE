@@ -4,7 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { TableModule as PTableModule } from "primeng/table";
 
-import { MenuModule } from '../menu/menu.module';
+import { MenuModule } from "../menu/menu.module";
 import { TableRoutingModule } from "./table-routing.module";
 import { TableComponent } from "./table/table.component";
 

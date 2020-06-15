@@ -4,7 +4,7 @@ import { NavItem, Outline, Section } from "src/app/models";
 @Component({
   selector: "eFaps-outline",
   templateUrl: "./outline.component.html",
-  styleUrls: ["./outline.component.scss"]
+  styleUrls: ["./outline.component.scss"],
 })
 export class OutlineComponent implements OnInit {
   @Input() _navItem: NavItem;
@@ -26,10 +26,10 @@ export class OutlineComponent implements OnInit {
     this._outline = outline;
     this.sections = outline.sections;
     this.header = outline.header;
-    this.menu = outline.menu
+    this.menu = outline.menu;
   }
 
   onAction(item: NavItem) {
-    console.log(item)
+    console.log(item);
   }
 }

@@ -7,5 +7,5 @@ export interface Value {
 export enum ValueType {
   READ_ONLY = "READ_ONLY",
   INPUT = "INPUT",
-  SNIPPLET = "SNIPPLET"
+  SNIPPLET = "SNIPPLET",
 }

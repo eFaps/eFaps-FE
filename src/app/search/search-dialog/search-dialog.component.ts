@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Search, TableSection } from "src/app/models";
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "eFaps-search-dialog",
   templateUrl: "./search-dialog.component.html",
-  styleUrls: ["./search-dialog.component.scss"]
+  styleUrls: ["./search-dialog.component.scss"],
 })
 export class SearchDialogComponent implements OnInit {
   searchItems: Search[] = [];
@@ -17,19 +17,19 @@ export class SearchDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SearchDialogComponent>,
-    formBuilder : FormBuilder
+    formBuilder: FormBuilder
   ) {
-    this.formGroup = formBuilder.group([])
+    this.formGroup = formBuilder.group([]);
   }
 
   ngOnInit(): void {
     this.data.currentSearch.subscribe({
-      next: searchItems => {
+      next: (searchItems) => {
         if (searchItems) {
           this.searchItems = searchItems;
           this.currentSearch = this.evalCurrent(searchItems);
         }
-      }
+      },
     });
   }
 
@@ -50,19 +50,21 @@ export class SearchDialogComponent implements OnInit {
   }
 
   hide() {
-    this.dialogRef.close(true)
+    this.dialogRef.close(true);
   }
 
   setCurrent(searchItem: Search) {
-    this.currentSearch = searchItem
+    this.currentSearch = searchItem;
   }
 
   query() {
-    this.data.service.query(this.currentSearch.id, this.formGroup.value).subscribe({
-      next: tableSection => {
-        this.tableSection = tableSection
-        this.showResult = true
-      }
-    })
+    this.data.service
+      .query(this.currentSearch.id, this.formGroup.value)
+      .subscribe({
+        next: (tableSection) => {
+          this.tableSection = tableSection;
+          this.showResult = true;
+        },
+      });
   }
 }

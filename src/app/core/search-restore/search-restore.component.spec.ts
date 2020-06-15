@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchRestoreComponent } from './search-restore.component';
+import { SearchRestoreComponent } from "./search-restore.component";
 
-describe('SearchRestoreComponent', () => {
+describe("SearchRestoreComponent", () => {
   let component: SearchRestoreComponent;
   let fixture: ComponentFixture<SearchRestoreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchRestoreComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchRestoreComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SearchRestoreComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

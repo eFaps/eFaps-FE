@@ -23,11 +23,11 @@ registerLocaleData(localeFr, "es");
     SearchModule,
     ModalModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production
-    })
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   entryComponents: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

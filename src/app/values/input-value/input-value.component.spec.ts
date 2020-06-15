@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { InputValueComponent } from './input-value.component';
+import { InputValueComponent } from "./input-value.component";
 
-describe('InputValueComponent', () => {
+describe("InputValueComponent", () => {
   let component: InputValueComponent;
   let fixture: ComponentFixture<InputValueComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputValueComponent ]
-    })
-    .compileComponents();
+      declarations: [InputValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('InputValueComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

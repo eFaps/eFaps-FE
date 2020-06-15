@@ -8,7 +8,7 @@ import { ContentService } from "src/app/services";
 @Component({
   selector: "eFaps-layout",
   templateUrl: "./layout.component.html",
-  styleUrls: ["./layout.component.scss"]
+  styleUrls: ["./layout.component.scss"],
 })
 export class LayoutComponent implements OnInit, AfterViewInit {
   content: Content;
@@ -33,16 +33,16 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     private contentService: ContentService
   ) {
     this.route.data.subscribe({
-      next: value => {
+      next: (value) => {
         this.content = value.content;
-      }
+      },
     });
   }
 
   ngOnInit(): void {
     this.nav = this.content.nav;
     this.currentOutline = this.content.outline;
-    this.currentNav = this.nav.find(item => {
+    this.currentNav = this.nav.find((item) => {
       return item.id == this.content.selected;
     });
   }
@@ -52,25 +52,25 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       next: () => {
         this.isOpen = false;
         this.shouldTrigger = false;
-      }
+      },
     });
     this.drawer.openedStart.subscribe({
       next: () => {
         this.isOpen = true;
-      }
+      },
     });
     const ref = this.dragDrop.createDrag(this.dragbar);
     ref.lockAxis = "x";
     ref.moved.subscribe({
-      next: ev => {
+      next: (ev) => {
         this.drawerWidth = ev.pointerPosition.x - 2;
-      }
+      },
     });
     ref.released.subscribe({
-      next: _ => {
+      next: (_) => {
         ref.reset();
         this.drawerContainer.updateContentMargins();
-      }
+      },
     });
   }
 
@@ -110,9 +110,9 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     this.contentService
       .getOutline(this.currentOutline.oid, navItem.id)
       .subscribe({
-        next: outline => {
+        next: (outline) => {
           this.currentOutline = outline;
-        }
+        },
       });
   }
 }

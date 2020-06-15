@@ -6,7 +6,7 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 @Component({
   selector: "eFaps-snipplet-value",
   templateUrl: "./snipplet-value.component.html",
-  styleUrls: ["./snipplet-value.component.scss"]
+  styleUrls: ["./snipplet-value.component.scss"],
 })
 export class SnippletValueComponent implements OnInit, ValueComponent {
   formGroup: FormGroup;
