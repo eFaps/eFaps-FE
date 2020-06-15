@@ -22,7 +22,8 @@ export class TableComponent implements OnInit {
   virtualScroll = true;
   isLazy = true;
   selectionMode: string = null;
-
+  selection: any;
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
