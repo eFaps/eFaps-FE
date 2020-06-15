@@ -1,7 +1,9 @@
 @import "variables";
 
 .container {
-  height: 100%;
+  height: calc(100% - 43px);
+  margin-top: 3px;
+
 
   .colapse {
     position: absolute;

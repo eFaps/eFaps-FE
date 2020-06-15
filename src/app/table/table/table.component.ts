@@ -21,6 +21,7 @@ export class TableComponent implements OnInit {
   loading: boolean;
   virtualScroll = true;
   isLazy = true;
+  selectionMode: string = null;
 
   constructor(
     private router: Router,
@@ -54,6 +55,7 @@ export class TableComponent implements OnInit {
       this.virtualScroll = false;
     }
     this.loading = false;
+    this.selectionMode = table.selectionMode;
   }
 
   get table(): Table {

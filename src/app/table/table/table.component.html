@@ -1,7 +1,7 @@
 <div class="wrapper">
   <p-table #dt [columns]="columns" [value]="values" sortMode="multiple" [resizableColumns]="true" [scrollable]="true" scrollHeight="flex"
            [lazy]="isLazy" [virtualScroll]="virtualScroll" (onLazyLoad)="loadDataOnScroll($event)" [totalRecords]="totalRecords" [rows]="100"
-           [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true">
+           [loading]="loading" [reorderableColumns]="true" columnResizeMode="expand" [rowHover]="true" [selectionMode]="selectionMode">
     <ng-template pTemplate="caption">
       <div class="caption">
         <eFaps-menu [navItems]="menu" (action)="onAction($event)"></eFaps-menu>
@@ -22,6 +22,10 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
+        <th *ngIf="selectionMode=='single'" class="selectionColumn"></th>
+        <th *ngIf="selectionMode=='multiple'" class="selectionColumn">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
           {{col.header}}
           <p-sortIcon [field]="col.field"></p-sortIcon>
@@ -30,6 +34,12 @@
     </ng-template>
     <ng-template pTemplate="body" let-value let-columns="columns">
       <tr class="ui-selectable-row">
+        <td *ngIf="selectionMode=='single'" class="selectionColumn">
+          <p-tableRadioButton [value]="value"></p-tableRadioButton>
+        </td>
+        <td *ngIf="selectionMode=='multiple'" class="selectionColumn">
+          <p-tableCheckbox [value]="value"></p-tableCheckbox>
+        </td>
         <td *ngFor="let col of columns">
           <div>
             <button mat-icon-button *ngIf="col.ref" (click)="open(col, value)">
