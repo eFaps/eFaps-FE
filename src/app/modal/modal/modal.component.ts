@@ -44,8 +44,8 @@ export class ModalComponent implements OnInit {
     console.log(this.action);
     this.execService.execute(this.navItem.id, this.formGroup.value).subscribe({
       next: () => {
-
+        this.dialogRef.close({ reload: true });
       }
-    })
+    });
   }
 }

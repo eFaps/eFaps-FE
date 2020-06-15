@@ -32,6 +32,11 @@ export class TableComponent implements OnInit {
         this.table = value.table;
       }
     });
+    route.queryParams.subscribe({
+      next: params => {
+        this.id = params["id"];
+      }
+    });
   }
 
   set table(table: Table) {
@@ -99,11 +104,30 @@ export class TableComponent implements OnInit {
     if (item.action) {
       switch (item.action.type) {
         case ActionType.MODAL:
-          this.dialog.open(ModalComponent, {
+          const dialogRef = this.dialog.open(ModalComponent, {
             data: {
               navItem: item
             },
             disableClose: true
+          });
+          dialogRef.afterClosed().subscribe({
+            next: result => {
+              this.router
+                .navigate(["ui", { outlets: { layoutoutlet: null } }])
+                .then(() => {
+                  this.router.navigate(
+                    ["ui", { outlets: { layoutoutlet: ["table"] } }],
+                    {
+                      skipLocationChange: true,
+                      replaceUrl: false,
+                      queryParams: {
+                        id: this.id
+                      },
+                      state: { id: this.id }
+                    }
+                  );
+                });
+            }
           });
           break;
       }
