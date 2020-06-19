@@ -4,6 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CoreRoutingModule } from "./core-routing.module";
 import { LayoutComponent } from "./layout/layout.component";
@@ -27,6 +28,7 @@ import { TopNavComponent } from "./top-nav/top-nav.component";
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    AngularSvgIconModule.forRoot(),
   ],
 })
 export class CoreModule {}

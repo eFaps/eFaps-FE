@@ -6,11 +6,10 @@ import {
   OnInit,
   ViewChild,
 } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { NavService, SearchService, UserService } from "src/app/services";
-import { HistoryService } from "src/app/services/history.service";
+import { Router } from "@angular/router";
 
 import { ActionType, NavItem, User } from "../../models";
+import { NavService, SearchService, UserService } from "../../services";
 
 @Component({
   selector: "eFaps-top-nav",
@@ -21,11 +20,10 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
   @ViewChild("menuWrapper") menuWrapper: ElementRef;
   navItems: NavItem[] = [];
   user: User;
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
-    private route: ActivatedRoute,
-    private historyService: HistoryService,
     private navService: NavService,
     private userService: UserService,
     private searchService: SearchService
@@ -60,14 +58,12 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
   }
 
   triggerAction(item: NavItem) {
-    console.log(item);
     if (item && item.action && item.action.type != null) {
       this.onAction(item);
     }
   }
 
   onAction(item: NavItem) {
-    console.log(this.route);
     switch (item.action.type) {
       case ActionType.GRID:
         this.router
@@ -81,11 +77,6 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
                   id: item.id,
                 },
                 state: { id: item.id },
-              })
-              .then((b) => {
-                if (b) {
-                  this.historyService.register(item);
-                }
               });
           });
         break;
@@ -125,7 +116,6 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
             children: subMenus,
           });
         }
-        console.log(this.navItems);
         this.changeDetectorRef.detectChanges();
       }, 200);
     }

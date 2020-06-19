@@ -6,6 +6,11 @@
   .header {
     width: 100%;
     display: flex;
+
+    .logo {
+      margin-left: 4px;
+      margin-top: 2px;
+    }
   }
 
   .menu-wrapper {
@@ -37,4 +42,9 @@
     line-height: 40px;
     font-weight: bold;
   }
+}
+
+
+.svg-logo {
+  height: 35px
 }
