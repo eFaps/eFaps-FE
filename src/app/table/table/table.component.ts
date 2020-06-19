@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
+import { combineLatest, forkJoin } from "rxjs";
 
 import { ModalComponent } from "../../modal/modal/modal.component";
 import { ActionType, Column, NavItem, Table } from "../../models";
@@ -25,21 +26,25 @@ export class TableComponent implements OnInit {
   isLazy = true;
   selectionMode: string = null;
   selection: any;
+  history = false;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private historyService: HistoryService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    route: ActivatedRoute
   ) {
-    this.route.data.subscribe({
-      next: (value) => {
-        this.table = value.table;
-      },
-    });
-    route.queryParams.subscribe({
-      next: (params) => {
-        this.id = params["id"];
+    combineLatest(route.queryParams, route.data).subscribe({
+      next: (values) => {
+        this.id = values[0]["id"];
+        this.history = "history" in values[0] ? values[0]["history"] : false;
+        this.table = values[1].table;
+        if (!this.history) {
+          this.historyService.register({
+            id: this.id,
+            label: this.table.header,
+          });
+        }
       },
     });
   }
@@ -60,9 +65,6 @@ export class TableComponent implements OnInit {
     }
     this.loading = false;
     this.selectionMode = table.selectionMode;
-    this.historyService.register({
-      label: table.header
-    })
   }
 
   get table(): Table {

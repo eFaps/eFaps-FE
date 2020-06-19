@@ -4,9 +4,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { AngularSvgIconModule } from "angular-svg-icon";
 
 import { CoreRoutingModule } from "./core-routing.module";
+import { HistoryComponent } from "./history/history.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { MenuItemComponent } from "./menu-item/menu-item.component";
 import { SearchRestoreComponent } from "./search-restore/search-restore.component";
@@ -20,6 +21,7 @@ import { TopNavComponent } from "./top-nav/top-nav.component";
     MenuItemComponent,
     SearchComponent,
     SearchRestoreComponent,
+    HistoryComponent,
   ],
   imports: [
     CommonModule,

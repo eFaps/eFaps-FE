@@ -69,15 +69,17 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
         this.router
           .navigate(["ui", { outlets: { layoutoutlet: null } }])
           .then(() => {
-            this.router
-              .navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
+            this.router.navigate(
+              ["ui", { outlets: { layoutoutlet: ["table"] } }],
+              {
                 skipLocationChange: true,
                 replaceUrl: false,
                 queryParams: {
                   id: item.id,
                 },
                 state: { id: item.id },
-              });
+              }
+            );
           });
         break;
       case ActionType.DASHBOARD:
