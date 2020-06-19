@@ -1,0 +1,15 @@
+.dropzone {
+  flex-direction: column;
+
+  .preview {
+    height: unset !important;
+    min-height: unset !important;
+    max-width: unset !important;
+    width: 96%;
+
+    .label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

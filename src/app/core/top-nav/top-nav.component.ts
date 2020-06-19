@@ -6,8 +6,10 @@ import {
   OnInit,
   ViewChild,
 } from "@angular/core";
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from "@angular/router";
 
+import { ModalComponent } from '../../modal/modal/modal.component';
 import { ActionType, NavItem, User } from "../../models";
 import { NavService, SearchService, UserService } from "../../services";
 
@@ -26,7 +28,8 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
     private router: Router,
     private navService: NavService,
     private userService: UserService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -84,13 +87,19 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
         break;
       case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
-
       case ActionType.FORM:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
         break;
       case ActionType.SEARCH:
         this.searchService.search(item);
         break;
+        case ActionType.MODAL:
+          const dialogRef = this.dialog.open(ModalComponent, {
+            data: {
+              navItem: item,
+            },
+            disableClose: true,
+          });
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
         break;

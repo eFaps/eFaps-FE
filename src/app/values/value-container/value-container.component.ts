@@ -12,6 +12,7 @@ import { ValueDirective } from "../../services/value.directive";
 import { InputValueComponent } from "../input-value/input-value.component";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { SnippletValueComponent } from "../snipplet-value/snipplet-value.component";
+import { FileUploadValueComponent } from '../file-upload-value/file-upload-value.component';
 
 @Component({
   selector: "eFaps-value-container",
@@ -62,6 +63,10 @@ export class ValueContainerComponent implements OnInit {
         break;
       case ValueType.SNIPPLET:
         type = SnippletValueComponent;
+        break;
+      case ValueType.UPLOAD:
+      case ValueType.UPLOADMULTIPLE:
+        type = FileUploadValueComponent;
         break;
       default:
         type = ReadOnlyValueComponent;
