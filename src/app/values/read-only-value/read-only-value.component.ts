@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { ValueComponent, Value } from "../../models";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
+
+import { Value, ValueComponent } from "../../models";
 
 @Component({
   selector: "eFaps-read-only-value",

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+
 import { Content } from "../models/content";
 import { ReadOnlyValueComponent } from "../values/read-only-value/read-only-value.component";
 

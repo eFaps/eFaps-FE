@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+
 import { ContentService } from "../services";
 
 @Component({

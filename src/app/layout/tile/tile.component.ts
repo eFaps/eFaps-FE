@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit, Input } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 
-import { Value, Tile } from "../../models";
+import { Tile, Value } from "../../models";
 
 @Component({
   selector: "eFaps-tile",

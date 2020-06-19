@@ -1,5 +1,5 @@
+import { Action, NavItem } from "./nav-item";
 import { FormSection, TableSection } from "./section";
-import { NavItem, Action } from "./nav-item";
 
 export interface Outline {
   oid: string;

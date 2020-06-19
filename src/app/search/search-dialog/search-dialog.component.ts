@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Search, TableSection } from "src/app/models";
-import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "eFaps-search-dialog",

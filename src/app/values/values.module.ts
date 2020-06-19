@@ -6,8 +6,8 @@ import { MatInputModule } from "@angular/material/input";
 import { ValueDirective } from "../services/value.directive";
 import { InputValueComponent } from "./input-value/input-value.component";
 import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.component";
-import { ValueContainerComponent } from "./value-container/value-container.component";
 import { SnippletValueComponent } from "./snipplet-value/snipplet-value.component";
+import { ValueContainerComponent } from "./value-container/value-container.component";
 
 @NgModule({
   declarations: [

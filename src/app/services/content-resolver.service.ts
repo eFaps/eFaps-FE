@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import {
-  Resolve,
   ActivatedRouteSnapshot,
+  Resolve,
   RouterStateSnapshot,
 } from "@angular/router";
-import { Content } from "../models";
 import { Observable } from "rxjs";
+
+import { Content } from "../models";
 import { ContentService } from "./content.service";
 
 @Injectable({

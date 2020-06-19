@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ContentService } from "../../services";
+
 import { Content } from "../../models";
+import { ContentService } from "../../services";
 
 @Component({
   selector: "eFaps-content",

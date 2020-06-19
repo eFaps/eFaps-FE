@@ -1,7 +1,8 @@
-import { BehaviorSubject } from "rxjs";
 import { Injectable } from "@angular/core";
-import { ReadOnlyValueComponent } from "../values/read-only-value/read-only-value.component";
+import { BehaviorSubject } from "rxjs";
+
 import { Content, Layout } from "../models";
+import { ReadOnlyValueComponent } from "../values/read-only-value/read-only-value.component";
 
 @Injectable({
   providedIn: "root",

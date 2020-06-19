@@ -1,9 +1,10 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { BehaviorSubject, Observable } from "rxjs";
+
 import { NavItem, Search, TableSection } from "../models";
 import { SearchDialogComponent } from "../search/search-dialog/search-dialog.component";
-import { Observable, BehaviorSubject } from "rxjs";
-import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",

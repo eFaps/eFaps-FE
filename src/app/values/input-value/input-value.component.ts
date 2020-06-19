@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
 import { Value, ValueComponent } from "src/app/models";
-import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "eFaps-input-value",

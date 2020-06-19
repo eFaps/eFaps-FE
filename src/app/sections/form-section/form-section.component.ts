@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { FormSection, Value } from "src/app/models";
-import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "eFaps-form-section",

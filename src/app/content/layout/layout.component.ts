@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { NavItem, Content, Outline } from "src/app/models";
-import { MatDrawer, MatDrawerContainer } from "@angular/material/sidenav";
 import { DragDrop } from "@angular/cdk/drag-drop";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { MatDrawer, MatDrawerContainer } from "@angular/material/sidenav";
+import { ActivatedRoute } from "@angular/router";
+import { Content, NavItem, Outline } from "src/app/models";
 import { ContentService } from "src/app/services";
 
 @Component({

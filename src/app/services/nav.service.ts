@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { NavItem } from "../models";
 import { BehaviorSubject, Observable } from "rxjs";
+
+import { NavItem } from "../models";
 
 @Injectable({
   providedIn: "root",

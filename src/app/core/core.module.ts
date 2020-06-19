@@ -8,9 +8,9 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { CoreRoutingModule } from "./core-routing.module";
 import { LayoutComponent } from "./layout/layout.component";
 import { MenuItemComponent } from "./menu-item/menu-item.component";
+import { SearchRestoreComponent } from "./search-restore/search-restore.component";
 import { SearchComponent } from "./search/search.component";
 import { TopNavComponent } from "./top-nav/top-nav.component";
-import { SearchRestoreComponent } from "./search-restore/search-restore.component";
 
 @NgModule({
   declarations: [

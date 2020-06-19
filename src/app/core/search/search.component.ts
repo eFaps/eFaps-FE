@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
 import {
-  trigger,
+  animate,
   state,
   style,
   transition,
-  animate,
+  trigger,
 } from "@angular/animations";
+import { Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: "eFaps-search",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SafeResourceUrl, DomSanitizer } from "@angular/platform-browser";
+import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { WicketService } from "src/app/services/wicket.service";
 
 @Component({

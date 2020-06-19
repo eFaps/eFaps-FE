@@ -1,14 +1,16 @@
 import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
   AfterViewChecked,
   ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ActionType, NavItem, User } from "src/app/models";
 import { NavService, SearchService, UserService } from "src/app/services";
+import { HistoryService } from "src/app/services/history.service";
+
+import { ActionType, NavItem, User } from "../../models";
 
 @Component({
   selector: "eFaps-top-nav",
@@ -23,6 +25,7 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
     private route: ActivatedRoute,
+    private historyService: HistoryService,
     private navService: NavService,
     private userService: UserService,
     private searchService: SearchService
@@ -70,21 +73,25 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
         this.router
           .navigate(["ui", { outlets: { layoutoutlet: null } }])
           .then(() => {
-            this.router.navigate(
-              ["ui", { outlets: { layoutoutlet: ["table"] } }],
-              {
+            this.router
+              .navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
                 skipLocationChange: true,
                 replaceUrl: false,
                 queryParams: {
                   id: item.id,
                 },
                 state: { id: item.id },
-              }
-            );
+              })
+              .then((b) => {
+                if (b) {
+                  this.historyService.register(item);
+                }
+              });
           });
         break;
       case ActionType.DASHBOARD:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
+
       case ActionType.FORM:
         this.router.navigate(["ui", { outlets: { layoutoutlet: ["wicket"] } }]);
         break;

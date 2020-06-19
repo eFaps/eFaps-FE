@@ -1,6 +1,6 @@
+import { Column } from "./column";
 import { Heading } from "./heading";
 import { Value } from "./value";
-import { Column } from "./column";
 
 export interface Section {
   type: "FORM" | "TABLE" | "HEADING";

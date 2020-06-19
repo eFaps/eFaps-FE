@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { Value, ValueComponent } from "src/app/models";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { Value, ValueComponent } from "src/app/models";
 
 @Component({
   selector: "eFaps-snipplet-value",

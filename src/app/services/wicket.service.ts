@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+
+import { ActionType } from "../models";
 import { WicketPage } from "../models/wicket-page";
 import { NavService } from "./nav.service";
-import { ActionType } from "../models";
 
 @Injectable({
   providedIn: "root",

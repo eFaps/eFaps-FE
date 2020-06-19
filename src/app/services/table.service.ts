@@ -1,7 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Table } from "../models";
-import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+
+import { Table } from "../models";
+
 @Injectable({
   providedIn: "root",
 })
