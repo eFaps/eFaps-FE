@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Column, Table, NavItem, ActionType } from "src/app/models";
-import { LazyLoadEvent } from "primeng/api/lazyloadevent";
-import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
-import { ModalComponent } from "src/app/modal/modal/modal.component";
+import { ActivatedRoute, Router } from "@angular/router";
+import { LazyLoadEvent } from "primeng/api/lazyloadevent";
+
+import { ModalComponent } from "../../modal/modal/modal.component";
+import { ActionType, Column, NavItem, Table } from "../../models";
+import { HistoryService } from "../../services/history.service";
 
 @Component({
   selector: "eFaps-table",
@@ -23,10 +25,11 @@ export class TableComponent implements OnInit {
   isLazy = true;
   selectionMode: string = null;
   selection: any;
-  
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private historyService: HistoryService,
     public dialog: MatDialog
   ) {
     this.route.data.subscribe({
@@ -57,6 +60,9 @@ export class TableComponent implements OnInit {
     }
     this.loading = false;
     this.selectionMode = table.selectionMode;
+    this.historyService.register({
+      label: table.header
+    })
   }
 
   get table(): Table {
