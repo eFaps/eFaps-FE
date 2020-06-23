@@ -17,4 +17,5 @@ export enum ActionType {
   FORM = "FORM",
   SEARCH = "SEARCH",
   MODAL = "MODAL",
+  EXEC = "EXEC"
 }

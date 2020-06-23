@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class ExecService {
   constructor(private http: HttpClient) {}
@@ -13,6 +13,10 @@ export class ExecService {
     for (let [key, value] of Object.entries(values)) {
       if (value == null) {
         formData.append(key, "");
+      } else if (Array.isArray(value)) {
+        (<Array<string>>value).forEach(val => {
+          formData.append(key, String(val));
+        });
       } else {
         formData.append(key, String(value));
       }

@@ -1,4 +1,4 @@
-<div class="dropzone" ngx-dropzone (change)="onSelect($event)">
+<div class="dropzone" ngx-dropzone (change)="onSelect($event)" [formGroup]="formGroup" [id]="value.name">
   <ngx-dropzone-label>Drop or Browse</ngx-dropzone-label>
   <ngx-dropzone-preview class="preview" ngProjectAs="ngx-dropzone-preview" *ngFor="let upload of uploads" (removed)="onRemove(upload)"
                         [file]="upload.data.raw" [removable]="true">
@@ -6,6 +6,5 @@
       <span>{{ upload.data.name }}</span>
       <span>Progress: {{upload.data.progress}}%</span>
     </ngx-dropzone-label>
-
   </ngx-dropzone-preview>
 </div>

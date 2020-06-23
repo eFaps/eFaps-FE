@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 
 import { ModalComponent } from '../../modal/modal/modal.component';
 import { ActionType, NavItem, User } from "../../models";
-import { NavService, SearchService, UserService } from "../../services";
+import { ExecService, NavService, SearchService, UserService } from "../../services";
 
 @Component({
   selector: "eFaps-top-nav",
@@ -29,6 +29,7 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
     private navService: NavService,
     private userService: UserService,
     private searchService: SearchService,
+    private execService: ExecService,
     private dialog: MatDialog
   ) {}
 
@@ -93,13 +94,17 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
       case ActionType.SEARCH:
         this.searchService.search(item);
         break;
-        case ActionType.MODAL:
+      case ActionType.MODAL:
           const dialogRef = this.dialog.open(ModalComponent, {
             data: {
               navItem: item,
             },
             disableClose: true,
           });
+        break;
+      case ActionType.EXEC:
+        this.execService.execute(item.id, { placeholder: 0 }).subscribe()
+        break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
         break;
