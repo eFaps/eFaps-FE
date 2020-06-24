@@ -2,6 +2,7 @@ export * from "./content-resolver.service";
 export * from "./content.service";
 export * from "./exec.service";
 export * from "./form.service";
+export * from "./history.service";
 export * from "./layout.service";
 export * from "./nav.service";
 export * from "./search.service";

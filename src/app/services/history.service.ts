@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { HistoryEntry } from "../models/history-entry";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class HistoryService {
   prevEntries: HistoryEntry[] = [];
@@ -36,18 +36,40 @@ export class HistoryService {
   }
 
   nav(entry: HistoryEntry) {
-    this.router
-      .navigate(["ui", { outlets: { layoutoutlet: null } }])
-      .then(() => {
-        this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
-          skipLocationChange: true,
-          replaceUrl: false,
-          queryParams: {
-            id: entry.id,
-            history: true,
-          },
-          state: { id: entry.id },
+    if (entry.oid) {
+      this.router
+        .navigate(["ui", { outlets: { layoutoutlet: null } }])
+        .then(() => {
+          this.router.navigate(
+            ["ui", { outlets: { layoutoutlet: ["content"] } }],
+            {
+              skipLocationChange: true,
+              replaceUrl: false,
+              queryParams: {
+                id: entry.oid,
+                history: true
+              },
+              state: { id: entry.oid }
+            }
+          );
         });
-      });
+    } else {
+      this.router
+        .navigate(["ui", { outlets: { layoutoutlet: null } }])
+        .then(() => {
+          this.router.navigate(
+            ["ui", { outlets: { layoutoutlet: ["table"] } }],
+            {
+              skipLocationChange: true,
+              replaceUrl: false,
+              queryParams: {
+                id: entry.id,
+                history: true
+              },
+              state: { id: entry.id }
+            }
+          );
+        });
+    }
   }
 }
