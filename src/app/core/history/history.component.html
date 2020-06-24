@@ -1,6 +1,12 @@
 <div class="wrapper">
+  <mat-menu #historyMenu="matMenu">
+    <button mat-menu-item *ngFor="let entry of entries">{{entry.label}}</button>
+  </mat-menu>
   <button mat-icon-button color="primary" [disabled]="!hasPrevious" (click)="previous()">
     <mat-icon>navigate_before</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" class="dropdown" [matMenuTriggerFor]="historyMenu" [disabled]="entries.length < 1">
+    <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <button mat-icon-button color="primary" [disabled]="!hasNext" (click)="next()">
     <mat-icon>navigate_next</mat-icon>

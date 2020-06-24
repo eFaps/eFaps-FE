@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { HistoryEntry } from "../models/history-entry";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -11,11 +12,15 @@ export class HistoryService {
   nextEntries: HistoryEntry[] = [];
   current: HistoryEntry;
 
+  private entrySource = new BehaviorSubject<HistoryEntry[]>(null);
+  currentEntries = this.entrySource.asObservable();
+
   constructor(private router: Router) {}
 
   register(entry: HistoryEntry): any {
     if (this.current) {
       this.prevEntries.push(this.current);
+      this.checkPrevEntries();
     }
     this.current = entry;
     this.nextEntries = [];
@@ -23,6 +28,7 @@ export class HistoryService {
 
   previous() {
     const prev = this.prevEntries.pop();
+    this.checkPrevEntries();
     this.nextEntries.push(this.current);
     this.current = prev;
     this.nav(prev);
@@ -31,8 +37,16 @@ export class HistoryService {
   next(): any {
     const next = this.nextEntries.pop();
     this.prevEntries.push(this.current);
+    this.checkPrevEntries();
     this.current = next;
     this.nav(next);
+  }
+
+  checkPrevEntries() {
+    while (this.prevEntries.length > 10) {
+      this.prevEntries.shift()
+    }
+    this.entrySource.next(this.prevEntries);
   }
 
   nav(entry: HistoryEntry) {

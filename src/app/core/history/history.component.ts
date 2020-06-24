@@ -1,16 +1,26 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { HistoryService } from "src/app/services/history.service";
+
+import { HistoryEntry } from "../../models/history-entry";
+import { HistoryService } from "../../services/history.service";
 
 @Component({
   selector: "eFaps-history",
   templateUrl: "./history.component.html",
-  styleUrls: ["./history.component.scss"],
+  styleUrls: ["./history.component.scss"]
 })
 export class HistoryComponent implements OnInit {
-  constructor(private router: Router, private historyService: HistoryService) {}
+  entries: HistoryEntry[] = [];
+  constructor(private historyService: HistoryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.historyService.currentEntries.subscribe({
+      next: entries => {
+        if (entries) {
+          this.entries = entries.reverse();
+        }
+      }
+    });
+  }
 
   get hasPrevious(): boolean {
     return this.historyService.prevEntries.length > 0;
