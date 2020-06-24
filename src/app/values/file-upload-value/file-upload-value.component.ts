@@ -29,7 +29,10 @@ export class FileUploadValueComponent implements OnInit {
       autoStart: true
     });
 
-    this.uploadOptions = { url: "../rest/ui/upload" };
+    this.uploadOptions = {
+      url: "../rest/ui/upload",
+      headers: { "ngsw-bypass": "true" }
+    };
   }
 
   ngOnInit() {
