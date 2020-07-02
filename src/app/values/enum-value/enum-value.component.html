@@ -1,0 +1,8 @@
+<div class="wrapper" [formGroup]="formGroup">
+  <span class="label">{{value?.label}}</span>
+  <mat-radio-group [value]="currentOption" class="radioGroup" [name]="value?.name" [formControlName]="value?.name">
+    <mat-radio-button *ngFor="let option of options" [value]="option.value">
+      {{option.label}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

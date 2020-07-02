@@ -9,10 +9,11 @@ import { FormGroup } from "@angular/forms";
 
 import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
+import { EnumValueComponent } from "../enum-value/enum-value.component";
+import { FileUploadValueComponent } from '../file-upload-value/file-upload-value.component';
 import { InputValueComponent } from "../input-value/input-value.component";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { SnippletValueComponent } from "../snipplet-value/snipplet-value.component";
-import { FileUploadValueComponent } from '../file-upload-value/file-upload-value.component';
 
 @Component({
   selector: "eFaps-value-container",
@@ -68,6 +69,9 @@ export class ValueContainerComponent implements OnInit {
       case ValueType.UPLOADMULTIPLE:
         type = FileUploadValueComponent;
         break;
+      case ValueType.ENUM:
+        type = EnumValueComponent;
+      break;
       default:
         type = ReadOnlyValueComponent;
         break;

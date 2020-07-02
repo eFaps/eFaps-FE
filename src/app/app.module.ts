@@ -1,6 +1,4 @@
-import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-import localeFr from "@angular/common/locales/es";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -13,7 +11,6 @@ import { AppComponent } from "./app.component";
 import { ModalModule } from "./modal/modal.module";
 import { SearchModule } from "./search/search.module";
 
-registerLocaleData(localeFr, "es");
 @NgModule({
   declarations: [AppComponent],
   imports: [
