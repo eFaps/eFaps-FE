@@ -21,7 +21,7 @@ export class EnumValueComponent implements OnInit {
   set value(value: Value) {
     this._value = value;
     this.options = value.options;
-    this.formGroup.addControl(value.name, new FormControl());
+    this.formGroup.addControl(value.name, new FormControl(value.value));
   }
 
   get value() {

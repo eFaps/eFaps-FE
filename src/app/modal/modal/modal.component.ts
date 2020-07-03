@@ -8,12 +8,12 @@ import { ExecService } from "src/app/services/exec.service";
 @Component({
   selector: "eFaps-modal",
   templateUrl: "./modal.component.html",
-  styleUrls: ["./modal.component.scss"],
+  styleUrls: ["./modal.component.scss"]
 })
 export class ModalComponent implements OnInit {
   formGroup: FormGroup;
   navItem: NavItem;
-  id: string = null;
+  oid: string = null;
   sections: Section[] = [];
   action: Action;
   header: string;
@@ -26,26 +26,30 @@ export class ModalComponent implements OnInit {
     private execService: ExecService
   ) {
     this.navItem = data.navItem;
+    this.oid = data.oid;
     this.formGroup = formBuilder.group([]);
   }
 
   ngOnInit(): void {
-    this.contentService.getOutline(this.id, this.navItem.id).subscribe({
-      next: (outline) => {
+    this.contentService.getOutline(this.oid, this.navItem.id).subscribe({
+      next: outline => {
         console.log(outline);
         this.sections = outline.sections;
         this.action = outline.action;
         this.header = outline.header;
-      },
+      }
     });
   }
 
   exec() {
-    console.log(this.action);
-    this.execService.execute(this.navItem.id, this.formGroup.value).subscribe({
+    const value =
+      this.oid == null
+        ? this.formGroup.value
+        : { ...this.formGroup.value, eFapsOID: this.oid };
+    this.execService.execute(this.navItem.id, value).subscribe({
       next: () => {
         this.dialogRef.close({ reload: true });
-      },
+      }
     });
   }
 }

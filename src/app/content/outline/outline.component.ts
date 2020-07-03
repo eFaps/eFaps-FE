@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { NavItem, Outline, Section } from "src/app/models";
+
+import { ActionType, NavItem, Outline, Section } from "../../models";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "src/app/modal/modal/modal.component";
 
 @Component({
   selector: "eFaps-outline",
   templateUrl: "./outline.component.html",
-  styleUrls: ["./outline.component.scss"],
+  styleUrls: ["./outline.component.scss"]
 })
 export class OutlineComponent implements OnInit {
   @Input() _navItem: NavItem;
@@ -14,7 +17,7 @@ export class OutlineComponent implements OnInit {
   header: string;
   menu: NavItem[];
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -30,6 +33,23 @@ export class OutlineComponent implements OnInit {
   }
 
   onAction(item: NavItem) {
-    console.log(item);
+    if (item.action) {
+      switch (item.action.type) {
+        case ActionType.MODAL:
+          const dialogRef = this.dialog.open(ModalComponent, {
+            data: {
+              navItem: item,
+              oid: this.oid
+            },
+            disableClose: true
+          });
+          dialogRef.afterClosed().subscribe({
+            next: result => {
+              console.log("-------------------");
+            }
+          });
+          break;
+      }
+    }
   }
 }

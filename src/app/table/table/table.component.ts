@@ -33,7 +33,7 @@ export class TableComponent implements OnInit {
     private router: Router,
     private historyService: HistoryService,
     private execService: ExecService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     route: ActivatedRoute
   ) {
     combineLatest(route.queryParams, route.data).subscribe({

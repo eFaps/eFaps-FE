@@ -17,7 +17,7 @@ export class InputValueComponent implements OnInit, ValueComponent {
   @Input()
   set value(value: Value) {
     this._value = value;
-    this.formGroup.addControl(value.name, new FormControl());
+    this.formGroup.addControl(value.name, new FormControl(value.value));
   }
 
   get value() {
