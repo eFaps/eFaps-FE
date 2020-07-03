@@ -4,6 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { AngularSvgIconModule } from "angular-svg-icon";
 
 import { CoreRoutingModule } from "./core-routing.module";
@@ -30,6 +31,7 @@ import { TopNavComponent } from "./top-nav/top-nav.component";
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressBarModule,
     AngularSvgIconModule.forRoot(),
   ],
 })

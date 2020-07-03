@@ -4,19 +4,25 @@ import {
   Component,
   ElementRef,
   OnInit,
-  ViewChild,
+  ViewChild
 } from "@angular/core";
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 
-import { ModalComponent } from '../../modal/modal/modal.component';
+import { ModalComponent } from "../../modal/modal/modal.component";
 import { ActionType, NavItem, User } from "../../models";
-import { ExecService, NavService, SearchService, UserService } from "../../services";
+import {
+  BusyService,
+  ExecService,
+  NavService,
+  SearchService,
+  UserService
+} from "../../services";
 
 @Component({
   selector: "eFaps-top-nav",
   templateUrl: "./top-nav.component.html",
-  styleUrls: ["./top-nav.component.scss"],
+  styleUrls: ["./top-nav.component.scss"]
 })
 export class TopNavComponent implements OnInit, AfterViewChecked {
   @ViewChild("menuWrapper") menuWrapper: ElementRef;
@@ -26,6 +32,7 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
+    private busyService: BusyService,
     private navService: NavService,
     private userService: UserService,
     private searchService: SearchService,
@@ -34,20 +41,24 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
+    this.busyService.start();
     this.navService.getNav().subscribe({
-      next: (menu) => {
+      next: menu => {
         this.navItems = menu;
       },
+      complete: () => {
+        this.busyService.stop();
+      }
     });
     this.navService.currentNav.subscribe({
-      next: (navItem) => {
+      next: navItem => {
         this.triggerAction(navItem);
-      },
+      }
     });
     this.userService.currentUser.subscribe({
-      next: (user) => {
+      next: user => {
         this.user = user;
-      },
+      }
     });
   }
 
@@ -56,8 +67,8 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
       id: "",
       label: "",
       action: {
-        type: ActionType.DASHBOARD,
-      },
+        type: ActionType.DASHBOARD
+      }
     });
   }
 
@@ -79,9 +90,9 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
                 skipLocationChange: true,
                 replaceUrl: false,
                 queryParams: {
-                  id: item.id,
+                  id: item.id
                 },
-                state: { id: item.id },
+                state: { id: item.id }
               }
             );
           });
@@ -95,15 +106,15 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
         this.searchService.search(item);
         break;
       case ActionType.MODAL:
-          const dialogRef = this.dialog.open(ModalComponent, {
-            data: {
-              navItem: item,
-            },
-            disableClose: true,
-          });
+        const dialogRef = this.dialog.open(ModalComponent, {
+          data: {
+            navItem: item
+          },
+          disableClose: true
+        });
         break;
       case ActionType.EXEC:
-        this.execService.execute(item.id, { placeholder: 0 }).subscribe()
+        this.execService.execute(item.id, { placeholder: 0 }).subscribe();
         break;
       default:
         this.router.navigate(["ui", { outlets: { layoutoutlet: null } }]);
@@ -129,7 +140,7 @@ export class TopNavComponent implements OnInit, AfterViewChecked {
             id: "MORE",
             label: "",
             icon: "more_vert",
-            children: subMenus,
+            children: subMenus
           });
         }
         this.changeDetectorRef.detectChanges();
