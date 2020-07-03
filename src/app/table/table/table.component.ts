@@ -2,11 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
-import { combineLatest } from "rxjs";
+import { combineLatest, Observable } from "rxjs";
 
 import { ModalComponent } from "../../modal/modal/modal.component";
 import { ActionType, Column, NavItem, Table } from "../../models";
 import { ExecService, HistoryService } from "../../services";
+import { ConfirmDialogComponent } from "../../shared/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: "eFaps-table",
@@ -129,19 +130,25 @@ export class TableComponent implements OnInit {
           });
           break;
         case ActionType.EXEC:
-          let oids = Array<String>();
-          if (Array.isArray(this.selection)) {
-            (<any[]>this.selection).forEach(v => {
-              oids.push(v.OID);
-            });
-          }
-          this.execService
-            .execute(item.id, { eFapsSelectedOids: oids })
-            .subscribe({
-              next: () => {
-                this.reload();
+          this.verify(item).subscribe({
+            next: result => {
+              if (result) {
+                let oids = Array<String>();
+                if (Array.isArray(this.selection)) {
+                  (<any[]>this.selection).forEach(v => {
+                    oids.push(v.OID);
+                  });
+                }
+                this.execService
+                  .execute(item.id, { eFapsSelectedOids: oids })
+                  .subscribe({
+                    next: () => {
+                      this.reload();
+                    }
+                  });
               }
-            });
+            }
+          });
           break;
       }
     }
@@ -160,5 +167,17 @@ export class TableComponent implements OnInit {
           state: { id: this.id }
         });
       });
+  }
+
+  verify(item: NavItem): Observable<Boolean> {
+    if (item.action.verify) {
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        data: item.action.verify
+      });
+      return dialogRef.afterClosed();
+    }
+    return new Observable<Boolean>(subscriber => {
+      subscriber.next(true);
+    });
   }
 }

@@ -5,6 +5,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { TableModule as PTableModule } from "primeng/table";
 
 import { MenuModule } from "../menu/menu.module";
+import { SharedModule } from '../shared/shared.module';
 import { TableRoutingModule } from "./table-routing.module";
 import { TableComponent } from "./table/table.component";
 
@@ -17,6 +18,7 @@ import { TableComponent } from "./table/table.component";
     MatButtonModule,
     MatIconModule,
     MenuModule,
+    SharedModule,
   ],
 })
 export class TableModule {}
