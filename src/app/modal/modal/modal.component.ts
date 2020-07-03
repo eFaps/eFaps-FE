@@ -33,7 +33,6 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
     this.contentService.getOutline(this.oid, this.navItem.id).subscribe({
       next: outline => {
-        console.log(outline);
         this.sections = outline.sections;
         this.action = outline.action;
         this.header = outline.header;
