@@ -2,16 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LazyLoadEvent } from "primeng/api/lazyloadevent";
-import { combineLatest, forkJoin } from "rxjs";
+import { combineLatest } from "rxjs";
 
 import { ModalComponent } from "../../modal/modal/modal.component";
 import { ActionType, Column, NavItem, Table } from "../../models";
-import { HistoryService } from "../../services/history.service";
+import { ExecService, HistoryService } from "../../services";
 
 @Component({
   selector: "eFaps-table",
   templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"],
+  styleUrls: ["./table.component.scss"]
 })
 export class TableComponent implements OnInit {
   menu: NavItem[];
@@ -31,21 +31,22 @@ export class TableComponent implements OnInit {
   constructor(
     private router: Router,
     private historyService: HistoryService,
+    private execService: ExecService,
     public dialog: MatDialog,
     route: ActivatedRoute
   ) {
     combineLatest(route.queryParams, route.data).subscribe({
-      next: (values) => {
+      next: values => {
         this.id = values[0]["id"];
         this.history = "history" in values[0] ? values[0]["history"] : false;
         this.table = values[1].table;
         if (!this.history) {
           this.historyService.register({
             id: this.id,
-            label: this.table.header,
+            label: this.table.header
           });
         }
-      },
+      }
     });
   }
 
@@ -103,9 +104,9 @@ export class TableComponent implements OnInit {
             skipLocationChange: true,
             replaceUrl: false,
             queryParams: {
-              id: ref,
+              id: ref
             },
-            state: { id: ref },
+            state: { id: ref }
           }
         );
       });
@@ -117,31 +118,47 @@ export class TableComponent implements OnInit {
         case ActionType.MODAL:
           const dialogRef = this.dialog.open(ModalComponent, {
             data: {
-              navItem: item,
+              navItem: item
             },
-            disableClose: true,
+            disableClose: true
           });
           dialogRef.afterClosed().subscribe({
-            next: (result) => {
-              this.router
-                .navigate(["ui", { outlets: { layoutoutlet: null } }])
-                .then(() => {
-                  this.router.navigate(
-                    ["ui", { outlets: { layoutoutlet: ["table"] } }],
-                    {
-                      skipLocationChange: true,
-                      replaceUrl: false,
-                      queryParams: {
-                        id: this.id,
-                      },
-                      state: { id: this.id },
-                    }
-                  );
-                });
-            },
+            next: result => {
+              this.reload();
+            }
           });
+          break;
+        case ActionType.EXEC:
+          let oids = Array<String>();
+          if (Array.isArray(this.selection)) {
+            (<any[]>this.selection).forEach(v => {
+              oids.push(v.OID);
+            });
+          }
+          this.execService
+            .execute(item.id, { eFapsSelectedOids: oids })
+            .subscribe({
+              next: () => {
+                this.reload();
+              }
+            });
           break;
       }
     }
+  }
+
+  reload() {
+    this.router
+      .navigate(["ui", { outlets: { layoutoutlet: null } }])
+      .then(() => {
+        this.router.navigate(["ui", { outlets: { layoutoutlet: ["table"] } }], {
+          skipLocationChange: true,
+          replaceUrl: false,
+          queryParams: {
+            id: this.id
+          },
+          state: { id: this.id }
+        });
+      });
   }
 }

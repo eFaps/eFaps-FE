@@ -9,6 +9,12 @@ export interface NavItem {
 export interface Action {
   type: ActionType;
   label?: string;
+  verify?: Verify;
+}
+
+export interface Verify {
+  question?: string;
+  selectedRows?: number;
 }
 
 export enum ActionType {
