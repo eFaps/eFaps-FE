@@ -12,7 +12,8 @@ export enum ValueType {
   SNIPPLET = "SNIPPLET",
   UPLOAD = "UPLOAD",
   UPLOADMULTIPLE = "UPLOADMULTIPLE",
-  ENUM = "ENUM"
+  ENUM = "ENUM",
+  STATUS = "STATUS"
 }
 
 export interface Option {

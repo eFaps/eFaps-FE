@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatRadioModule } from "@angular/material/radio";
+import {MatSelectModule} from '@angular/material/select';
 import { NgxFileUploadCoreModule } from "@ngx-file-upload/core";
 import { NgxDropzoneModule } from "ngx-dropzone";
 
@@ -12,6 +13,7 @@ import { FileUploadValueComponent } from "./file-upload-value/file-upload-value.
 import { InputValueComponent } from "./input-value/input-value.component";
 import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.component";
 import { SnippletValueComponent } from "./snipplet-value/snipplet-value.component";
+import { StatusValueComponent } from './status-value/status-value.component';
 import { ValueContainerComponent } from "./value-container/value-container.component";
 
 @NgModule({
@@ -22,7 +24,8 @@ import { ValueContainerComponent } from "./value-container/value-container.compo
     InputValueComponent,
     SnippletValueComponent,
     FileUploadValueComponent,
-    EnumValueComponent
+    EnumValueComponent,
+    StatusValueComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { ValueContainerComponent } from "./value-container/value-container.compo
     NgxDropzoneModule,
     NgxFileUploadCoreModule,
     MatRadioModule,
+    MatSelectModule,
   ],
   exports: [ValueContainerComponent]
 })

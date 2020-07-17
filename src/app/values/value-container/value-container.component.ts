@@ -14,6 +14,7 @@ import { FileUploadValueComponent } from '../file-upload-value/file-upload-value
 import { InputValueComponent } from "../input-value/input-value.component";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { SnippletValueComponent } from "../snipplet-value/snipplet-value.component";
+import { StatusValueComponent } from '../status-value/status-value.component';
 
 @Component({
   selector: "eFaps-value-container",
@@ -71,6 +72,9 @@ export class ValueContainerComponent implements OnInit {
         break;
       case ValueType.ENUM:
         type = EnumValueComponent;
+      break;
+      case ValueType.STATUS:
+        type = StatusValueComponent;
       break;
       default:
         type = ReadOnlyValueComponent;

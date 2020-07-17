@@ -1,0 +1,8 @@
+<div class="wrapper" [formGroup]="formGroup">
+  <span class="label">{{value?.label}}</span>
+  <mat-select class="value select" required [formControlName]="value?.name">
+    <mat-option *ngFor="let option of options"  [(value)]="option.value">
+      {{option.label}}
+    </mat-option>
+  </mat-select>
+</div>

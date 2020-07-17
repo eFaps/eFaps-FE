@@ -1,6 +1,6 @@
 <div class="wrapper" [formGroup]="formGroup">
   <span class="label">{{value?.label}}</span>
-  <mat-form-field>
+  <mat-form-field class="value">
     <input matInput [value]="value?.value" [formControlName]="value?.name"/>
   </mat-form-field>
 </div>

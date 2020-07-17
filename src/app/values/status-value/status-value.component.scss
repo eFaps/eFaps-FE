@@ -13,6 +13,10 @@
 
   .value {
     @include value;
+  }
+
+  .select {
     width: calc(100% - #{$label-width});
   }
+
 }
