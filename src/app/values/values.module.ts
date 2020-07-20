@@ -15,6 +15,7 @@ import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.compon
 import { SnippletValueComponent } from "./snipplet-value/snipplet-value.component";
 import { StatusValueComponent } from './status-value/status-value.component';
 import { ValueContainerComponent } from "./value-container/value-container.component";
+import { RadioValueComponent } from './radio-value/radio-value.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ValueContainerComponent } from "./value-container/value-container.compo
     SnippletValueComponent,
     FileUploadValueComponent,
     EnumValueComponent,
-    StatusValueComponent
+    StatusValueComponent,
+    RadioValueComponent
   ],
   imports: [
     CommonModule,

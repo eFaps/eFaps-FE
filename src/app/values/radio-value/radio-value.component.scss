@@ -1,0 +1,22 @@
+@import '../../../variables.scss';
+@import '../values.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+
+  .label {
+    @include label;
+  }
+
+  .value {
+    @include value;
+  }
+
+  .radioGroup {
+    display: flex;
+    flex-direction: column;
+  }
+}

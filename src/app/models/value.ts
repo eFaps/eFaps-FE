@@ -13,7 +13,8 @@ export enum ValueType {
   UPLOAD = "UPLOAD",
   UPLOADMULTIPLE = "UPLOADMULTIPLE",
   ENUM = "ENUM",
-  STATUS = "STATUS"
+  STATUS = "STATUS",
+  RADIO = "RADIO"
 }
 
 export interface Option {
