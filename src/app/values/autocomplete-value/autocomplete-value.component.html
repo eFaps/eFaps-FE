@@ -1,0 +1,9 @@
+<div class="wrapper" [formGroup]="formGroup">
+  <span class="label">{{value?.label}}</span>
+  <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControlName]="value?.name" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let option of options | async" [value]="option">
+      {{option.label}}
+    </mat-option>
+  </mat-autocomplete>
+</div>

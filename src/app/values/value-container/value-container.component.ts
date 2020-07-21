@@ -3,24 +3,25 @@ import {
   ComponentFactoryResolver,
   Input,
   OnInit,
-  ViewChild,
+  ViewChild
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
 import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
+import { AutocompleteValueComponent } from "../autocomplete-value/autocomplete-value.component";
 import { EnumValueComponent } from "../enum-value/enum-value.component";
-import { FileUploadValueComponent } from '../file-upload-value/file-upload-value.component';
+import { FileUploadValueComponent } from "../file-upload-value/file-upload-value.component";
 import { InputValueComponent } from "../input-value/input-value.component";
+import { RadioValueComponent } from "../radio-value/radio-value.component";
 import { ReadOnlyValueComponent } from "../read-only-value/read-only-value.component";
 import { SnippletValueComponent } from "../snipplet-value/snipplet-value.component";
-import { StatusValueComponent } from '../status-value/status-value.component';
-import { RadioValueComponent } from '../radio-value/radio-value.component';
+import { StatusValueComponent } from "../status-value/status-value.component";
 
 @Component({
   selector: "eFaps-value-container",
   templateUrl: "./value-container.component.html",
-  styleUrls: ["./value-container.component.scss"],
+  styleUrls: ["./value-container.component.scss"]
 })
 export class ValueContainerComponent implements OnInit {
   private _value: Value;
@@ -79,6 +80,9 @@ export class ValueContainerComponent implements OnInit {
         break;
       case ValueType.RADIO:
         type = RadioValueComponent;
+        break;
+      case ValueType.AUTOCOMPLETE:
+        type = AutocompleteValueComponent;
         break;
       default:
         type = ReadOnlyValueComponent;

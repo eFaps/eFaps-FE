@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SearchService } from "src/app/services";
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: "eFaps-search-restore",

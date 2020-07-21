@@ -15,9 +15,9 @@ import {
   BusyService,
   ExecService,
   NavService,
-  SearchService,
   UserService
 } from "../../services";
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: "eFaps-top-nav",

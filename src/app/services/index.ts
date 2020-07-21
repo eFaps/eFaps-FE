@@ -1,3 +1,4 @@
+export * from "./autocomplete.service";
 export * from "./busy.service";
 export * from "./content-resolver.service";
 export * from "./content.service";
@@ -6,7 +7,6 @@ export * from "./form.service";
 export * from "./history.service";
 export * from "./layout.service";
 export * from "./nav.service";
-export * from "./search.service";
 export * from "./table-resolver.service";
 export * from "./table.service";
 export * from "./user.service";

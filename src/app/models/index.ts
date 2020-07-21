@@ -1,3 +1,4 @@
+export * from "./autocomplete-response";
 export * from "./column";
 export * from "./content";
 export * from "./heading";

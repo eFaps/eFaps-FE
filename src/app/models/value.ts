@@ -4,17 +4,19 @@ export interface Value {
   label: string;
   value: any;
   options?: Option[];
+  ref?: string;
 }
 
 export enum ValueType {
-  READ_ONLY = "READ_ONLY",
+  AUTOCOMPLETE = "AUTOCOMPLETE",
+  ENUM = "ENUM",
   INPUT = "INPUT",
+  RADIO = "RADIO",
+  READ_ONLY = "READ_ONLY",
   SNIPPLET = "SNIPPLET",
+  STATUS = "STATUS",
   UPLOAD = "UPLOAD",
   UPLOADMULTIPLE = "UPLOADMULTIPLE",
-  ENUM = "ENUM",
-  STATUS = "STATUS",
-  RADIO = "RADIO"
 }
 
 export interface Option {
