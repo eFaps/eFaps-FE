@@ -1,0 +1,6 @@
+<div class="wrapper" [formGroup]="formGroup">
+  <span class="label">{{value?.label}}</span>
+  <input matInput [matDatepicker]="picker" [formControlName]="value?.name">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</div>

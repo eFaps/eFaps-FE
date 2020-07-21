@@ -10,6 +10,7 @@ import { FormGroup } from "@angular/forms";
 import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
 import { AutocompleteValueComponent } from "../autocomplete-value/autocomplete-value.component";
+import { DateValueComponent } from '../date-value/date-value.component';
 import { EnumValueComponent } from "../enum-value/enum-value.component";
 import { FileUploadValueComponent } from "../file-upload-value/file-upload-value.component";
 import { InputValueComponent } from "../input-value/input-value.component";
@@ -83,6 +84,9 @@ export class ValueContainerComponent implements OnInit {
         break;
       case ValueType.AUTOCOMPLETE:
         type = AutocompleteValueComponent;
+        break;
+      case ValueType.DATE:
+        type = DateValueComponent;
         break;
       default:
         type = ReadOnlyValueComponent;

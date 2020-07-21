@@ -1,7 +1,9 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatInputModule } from "@angular/material/input";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatSelectModule } from "@angular/material/select";
@@ -9,6 +11,8 @@ import { NgxFileUploadCoreModule } from "@ngx-file-upload/core";
 import { NgxDropzoneModule } from "ngx-dropzone";
 
 import { ValueDirective } from "../services/value.directive";
+import { AutocompleteValueComponent } from "./autocomplete-value/autocomplete-value.component";
+import { DateValueComponent } from "./date-value/date-value.component";
 import { EnumValueComponent } from "./enum-value/enum-value.component";
 import { FileUploadValueComponent } from "./file-upload-value/file-upload-value.component";
 import { InputValueComponent } from "./input-value/input-value.component";
@@ -17,7 +21,6 @@ import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.compon
 import { SnippletValueComponent } from "./snipplet-value/snipplet-value.component";
 import { StatusValueComponent } from "./status-value/status-value.component";
 import { ValueContainerComponent } from "./value-container/value-container.component";
-import { AutocompleteValueComponent } from './autocomplete-value/autocomplete-value.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { AutocompleteValueComponent } from './autocomplete-value/autocomplete-va
     EnumValueComponent,
     StatusValueComponent,
     RadioValueComponent,
-    AutocompleteValueComponent
+    AutocompleteValueComponent,
+    DateValueComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +44,9 @@ import { AutocompleteValueComponent } from './autocomplete-value/autocomplete-va
     NgxFileUploadCoreModule,
     MatRadioModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   exports: [ValueContainerComponent]
 })
