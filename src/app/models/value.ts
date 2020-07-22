@@ -10,6 +10,7 @@ export interface Value {
 export enum ValueType {
   AUTOCOMPLETE = "AUTOCOMPLETE",
   DATE = "DATE",
+  DROPDOWN = "DROPDOWN",
   ENUM = "ENUM",
   INPUT = "INPUT",
   RADIO = "RADIO",

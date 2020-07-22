@@ -21,6 +21,7 @@ import { ReadOnlyValueComponent } from "./read-only-value/read-only-value.compon
 import { SnippletValueComponent } from "./snipplet-value/snipplet-value.component";
 import { StatusValueComponent } from "./status-value/status-value.component";
 import { ValueContainerComponent } from "./value-container/value-container.component";
+import { DropDownValueComponent } from './drop-down-value/drop-down-value.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ValueContainerComponent } from "./value-container/value-container.compo
     StatusValueComponent,
     RadioValueComponent,
     AutocompleteValueComponent,
-    DateValueComponent
+    DateValueComponent,
+    DropDownValueComponent
   ],
   imports: [
     CommonModule,

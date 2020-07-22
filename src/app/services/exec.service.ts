@@ -17,6 +17,8 @@ export class ExecService {
         (<Array<string>>value).forEach(val => {
           formData.append(key, String(val));
         });
+      } else if (typeof value === 'object' && "value" in <any>value) {
+        formData.append(key, String((<any>value).value));
       } else {
         formData.append(key, String(value));
       }

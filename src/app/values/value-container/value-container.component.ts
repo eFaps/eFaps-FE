@@ -11,6 +11,7 @@ import { Value, ValueComponent, ValueType } from "../../models";
 import { ValueDirective } from "../../services/value.directive";
 import { AutocompleteValueComponent } from "../autocomplete-value/autocomplete-value.component";
 import { DateValueComponent } from '../date-value/date-value.component';
+import { DropDownValueComponent } from '../drop-down-value/drop-down-value.component';
 import { EnumValueComponent } from "../enum-value/enum-value.component";
 import { FileUploadValueComponent } from "../file-upload-value/file-upload-value.component";
 import { InputValueComponent } from "../input-value/input-value.component";
@@ -88,6 +89,9 @@ export class ValueContainerComponent implements OnInit {
       case ValueType.DATE:
         type = DateValueComponent;
         break;
+      case ValueType.DROPDOWN:
+        type = DropDownValueComponent;
+        break;  
       default:
         type = ReadOnlyValueComponent;
         break;
