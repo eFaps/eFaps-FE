@@ -17,7 +17,7 @@ export interface TableSection extends Section {
   values: any[];
 }
 
-export interface HeadingSection {
+export interface HeadingSection extends Section {
   type: "HEADING";
   header: string;
   level: number;

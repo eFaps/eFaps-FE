@@ -3,6 +3,7 @@
   <div *ngFor="let section of sections">
     <eFaps-form-section *ngIf="'FORM' == section.type" [section]="section" [formGroup]="formGroup"></eFaps-form-section>
     <eFaps-table-section *ngIf="'TABLE' == section.type" [section]="section"></eFaps-table-section>
+    <eFaps-heading-section *ngIf="'HEADING' == section.type" [section]="section"></eFaps-heading-section>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end" *ngIf="action">
