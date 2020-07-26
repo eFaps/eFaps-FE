@@ -24,4 +24,12 @@ export class TableSectionComponent implements OnInit {
   get section(): TableSection {
     return this._section;
   }
+
+  add() {
+    this.values.push({})
+  }
+
+  remove(index: number) {
+    this.values.splice(index, 1);
+  }
 }

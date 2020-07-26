@@ -15,6 +15,7 @@ export interface TableSection extends Section {
   type: "TABLE";
   columns: Column[];
   values: any[];
+  editable: boolean;
 }
 
 export interface HeadingSection extends Section {
