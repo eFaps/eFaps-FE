@@ -42,7 +42,7 @@
         </td>
         <td *ngFor="let col of columns">
           <div>
-            <button mat-icon-button *ngIf="col.ref" (click)="open(col, value)">
+            <button mat-icon-button *ngIf="col.ref != null" (click)="open(col, value)">
               <mat-icon>info</mat-icon>
             </button>
             <span>{{value[col.field]}}</span>
