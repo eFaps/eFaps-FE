@@ -1,5 +1,8 @@
+import { ValueType } from './value';
+
 export interface Column {
-  header: String;
-  field: String;
-  ref: boolean;
+  header: string;
+  field: string;
+  ref: string;
+  type?: ValueType;
 }

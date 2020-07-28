@@ -1,6 +1,6 @@
 <div class="wrapper" [formGroup]="formGroup">
-  <span class="label">{{value?.label}}</span>
-  <mat-form-field class="value">
+  <span class="label" *ngIf="value!.label != null">{{value?.label}}</span>
+  <mat-form-field class="value" [ngClass]="{'nolabel': value!.label == null }">
     <input matInput [value]="value?.value" [formControlName]="value?.name"/>
   </mat-form-field>
 </div>

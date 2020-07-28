@@ -14,5 +14,10 @@
   .value {
     @include value;
     width: calc(100% - #{$label-width});
+
+    &.nolabel {
+      width: unset;
+      padding: unset;
+    }
   }
 }

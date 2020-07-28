@@ -19,6 +19,9 @@
         <ng-container *ngIf="!section.editable">
           <span> {{value[col.field]}}</span>
         </ng-container>
+        <ng-container *ngIf="section.editable">
+          <eFaps-value-container [value]="getValue(col, value[col.field])" [form]="formGroup"></eFaps-value-container>
+        </ng-container>
       </td>
     </tr>
   </ng-template>
