@@ -1,13 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { BehaviorSubject, Observable } from "rxjs";
 
 import { NavItem, Search, TableSection } from "../models";
 import { SearchDialogComponent } from "../search/search-dialog/search-dialog.component";
+import { first } from "rxjs/operators";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class SearchService {
   private searchSource = new BehaviorSubject<Search>(null);
@@ -15,10 +16,11 @@ export class SearchService {
 
   private restoreableSource = new BehaviorSubject<any>(null);
   restoreable = this.restoreableSource.asObservable();
+
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   search(item: NavItem): any {
-    var dialogRef = this.dialog.openDialogs.find((dialogRef) => {
+    var dialogRef = this.dialog.openDialogs.find(dialogRef => {
       return dialogRef.id == "SearchDialog";
     });
 
@@ -29,21 +31,13 @@ export class SearchService {
         id: "SearchDialog",
         data: {
           currentSearch: this.currentSearch,
-          service: this,
-        },
+          service: this
+        }
       });
-      dialogRef.afterClosed().subscribe({
-        next: (restorable) => {
-          if (restorable) {
-            this.restoreableSource.next({});
-          } else {
-            this.restoreableSource.next(null);
-          }
-        },
-      });
+      this.afterClosed(dialogRef);
     }
     this.getSearch(item).subscribe({
-      next: (search) => this.searchSource.next(search),
+      next: search => this.searchSource.next(search)
     });
   }
 
@@ -53,23 +47,32 @@ export class SearchService {
   }
 
   public restore() {
-    this.restoreableSource.next(null);
-    var dialogRef = this.dialog.open(SearchDialogComponent, {
-      hasBackdrop: false,
-      id: "SearchDialog",
-      data: {
-        currentSearch: this.currentSearch,
-        service: this,
-      },
+    this.restoreable.pipe(first()).subscribe({
+      next: content => {
+        console.log(content);
+        var dialogRef = this.dialog.open(SearchDialogComponent, {
+          hasBackdrop: false,
+          id: "SearchDialog",
+          data: {
+            service: this,
+            restorable: content
+          }
+        });
+        this.afterClosed(dialogRef);
+      }
     });
-    dialogRef.afterClosed().subscribe({
-      next: (restorable) => {
+    this.restoreableSource.next(null);
+  }
+
+  private afterClosed(matDialogRef: MatDialogRef<any, any>) {
+    matDialogRef.afterClosed().subscribe({
+      next: restorable => {
         if (restorable) {
-          this.restoreableSource.next({});
+          this.restoreableSource.next(restorable);
         } else {
           this.restoreableSource.next(null);
         }
-      },
+      }
     });
   }
 

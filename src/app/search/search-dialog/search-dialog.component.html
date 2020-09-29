@@ -27,5 +27,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
-  <button mat-button color="primary" (click)="query()">Search</button>
+  <button mat-button color="primary" (click)="query()" *ngIf="!showResult">Search</button>
+  <button mat-button color="primary" (click)="back()" *ngIf="showResult">Back</button>
 </div>
