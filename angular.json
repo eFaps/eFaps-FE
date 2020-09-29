@@ -14,7 +14,7 @@
       "sourceRoot": "src",
       "prefix": "eFaps",
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en",
         "locales": {
           "es": "src/locale/messages.es.xlf"
         }
@@ -73,12 +73,7 @@
               "ngswConfigPath": "ngsw-config.json"
             },
             "es": {
-              "localize": ["es"]
-            },
-            "es2": {
-              "i18nFile": "src/locale/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
+              "localize": ["es"],
             }
           }
         },
