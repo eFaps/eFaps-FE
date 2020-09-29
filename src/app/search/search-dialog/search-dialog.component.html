@@ -23,7 +23,7 @@
 </div>
 <div mat-dialog-content>
   <eFaps-form-section *ngIf="!showResult" [section]="currentSearch?.formSection" [formGroup]="formGroup"></eFaps-form-section>
-  <eFaps-table-section *ngIf="showResult" [section]="tableSection"></eFaps-table-section>
+  <eFaps-table-section *ngIf="showResult" [section]="tableSection" (opened)="open($event)"></eFaps-table-section>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { Router } from '@angular/router';
 import { Search, TableSection } from "src/app/models";
 import { SearchService } from "src/app/services/search.service";
 
@@ -18,6 +19,7 @@ export class SearchDialogComponent implements OnInit {
 
   searchService: SearchService;
   constructor(
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SearchDialogComponent>,
     formBuilder: FormBuilder
@@ -86,5 +88,24 @@ export class SearchDialogComponent implements OnInit {
 
   back() {
     this.showResult = false;
+  }
+
+  open(oid: string) {
+    this.router
+      .navigate(["ui", { outlets: { layoutoutlet: null } }])
+      .then(() => {
+        this.router.navigate(
+          ["ui", { outlets: { layoutoutlet: ["content"] } }],
+          {
+            skipLocationChange: true,
+            replaceUrl: false,
+            queryParams: {
+              id: oid
+            },
+            state: { id: oid }
+          }
+        );
+        this.hide();
+      });
   }
 }

@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { TableSection, Value, Column } from "../../models";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormGroup } from "@angular/forms";
+
+import { Column, TableSection, Value } from "../../models";
 
 @Component({
   selector: "eFaps-table-section",
@@ -12,6 +13,8 @@ export class TableSectionComponent implements OnInit {
   _formGroup: FormGroup;
   values = [];
   columns = [];
+  @Output() opened = new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -52,5 +55,14 @@ export class TableSectionComponent implements OnInit {
       value: val,
       ref: column.ref
     };
+  }
+
+  open(column: Column, value: any): void {
+    var ref = value[`${column.field}_AOID`];
+    if (ref) {
+    } else {
+      ref = value["OID"];
+    }
+    this.opened.emit(ref);
   }
 }

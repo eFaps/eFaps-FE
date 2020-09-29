@@ -17,7 +17,12 @@
       </td>
       <td *ngFor="let col of columns">
         <ng-container *ngIf="!section.editable">
-          <span> {{value[col.field]}}</span>
+          <div>
+            <button mat-icon-button *ngIf="col.ref != null" (click)="open(col, value)">
+              <mat-icon>info</mat-icon>
+            </button>
+            <span>{{value[col.field]}}</span>
+          </div>
         </ng-container>
         <ng-container *ngIf="section.editable">
           <eFaps-value-container [value]="getValue(col, value[col.field])" [form]="formGroup"></eFaps-value-container>
